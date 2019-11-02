@@ -25,6 +25,7 @@ def test_get_film():
         year=2012,
         age_rating=types.AgeRating.AGE_18,
         imdb_rating=8.4,
+        genre="Drama, Western",
         runtime_mins=165,
         plot=(
             "With the help of a German bounty hunter, a freed slave sets out to "

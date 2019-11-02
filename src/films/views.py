@@ -21,6 +21,7 @@ class FilmCreate(CreateView):
         self.object.year = film.year
         self.object.age_rating = film.age_rating.value
         self.object.imdb_rating = film.imdb_rating
+        self.object.genre = film.genre
         self.object.runtime_mins = film.runtime_mins
         self.object.plot = film.plot
         self.object.poster_url = film.poster_url
@@ -34,6 +35,7 @@ class FilmUpdate(UpdateView):
         "year",
         "age_rating",
         "imdb_rating",
+        "genre",
         "runtime_mins",
         "plot",
         "poster_url",
