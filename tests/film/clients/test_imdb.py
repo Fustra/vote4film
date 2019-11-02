@@ -2,8 +2,8 @@ from pathlib import Path
 
 import responses
 
-from film.clients import imdb
-from film.core import types
+from films.clients import imdb
+from films.core import types
 
 
 @responses.activate

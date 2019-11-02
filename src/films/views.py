@@ -1,8 +1,8 @@
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 
-from film.clients import imdb
-from film.models import Film
+from films.clients import imdb
+from films.models import Film
 
 
 class FilmList(ListView):

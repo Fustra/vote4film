@@ -1,7 +1,7 @@
 import requests
 from lxml import html  # nosec
 
-from film.core import types
+from films.core import types
 
 
 def get_film(url: str) -> types.Film:

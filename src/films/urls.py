@@ -1,6 +1,6 @@
 from django.urls import path
 
-from film import views
+from films import views
 
 urlpatterns = [
     path("", views.FilmList.as_view(), name="film-list"),
