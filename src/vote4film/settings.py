@@ -17,8 +17,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 settings_path = environ.Path(__file__) - 1
 django_app = settings_path - 1
-src_folder = django_app - 1
-repo_root = src_folder - 1
+repo_root = django_app - 1
 
 # Great setup for local developers, just need to enable DEBUG in local.env
 env = environ.Env(
@@ -100,6 +99,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_extensions",
+    "film",
 ]
 
 if DEBUG:
