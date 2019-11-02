@@ -4,12 +4,22 @@
 <title>Vote4Film</title>
 
 <style>
+  nav {
+    max-width: 60em;
+    margin: 0 auto;
+  }
   main {
     max-width: 60em;
     margin: 0 auto;
   }
 </style>
 
+<nav>
+  Upcoming | Vote | Calender
+  | <a href="{% url 'films:film-create' %}">Add Film</a>
+  | <a href="{% url 'admin:logout' %}">Logout {{ request.user.username }}</a>
+  <hr>
+</nav>
 
 <main>
   {% block content %}

@@ -3,6 +3,9 @@ from django.urls import reverse
 
 
 class Film(models.Model):
+    class Meta:
+        unique_together = [["title", "year"]]
+
     UNIVERSAL = "U"
     PARENTAL_GUIDANCE = "PG"
     AGE_12 = "12"  # Including 12A
@@ -26,10 +29,10 @@ class Film(models.Model):
     is_watched = models.BooleanField(default=False, help_text="Have we watched it?")
 
     def get_absolute_url(self):
-        return reverse("film-update", kwargs={"pk": self.pk})
+        return reverse("films:film-update", kwargs={"pk": self.pk})
 
     def __str__(self):
-        return f"{self.title}"
+        return f"{self.title} ({self.year}) [{self.age_rating}]"
 
     def __repr__(self):
         return f"<Film(pk={self.pk}>"

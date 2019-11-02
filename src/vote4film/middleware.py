@@ -1,3 +1,6 @@
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
 from vote4film.log import global_context_filter
 
 
@@ -25,5 +28,24 @@ def add_user_logging_context(get_response):
     def middleware(request):
         global_context_filter.update_user_info()
         return get_response(request)
+
+    return middleware
+
+
+def login_required_middleware(get_response):
+    """
+    Middleware that requires a user to be authenticated to view any page other
+    than LOGIN_URL.
+
+    Requires authentication middleware and template context processors to be
+    loaded. You'll get an error if they aren't.
+    """
+    exceptions = {"/admin/login/"}
+
+    def middleware(request):
+        print("ASD")
+        if request.path in exceptions:
+            return get_response(request)
+        return login_required(get_response, login_url=reverse("admin:login"))(request)
 
     return middleware
