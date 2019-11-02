@@ -22,3 +22,6 @@ class Film:
     age_rating: AgeRating
     imdb_rating: float
     trailer: Optional[str] = None
+    runtime_mins: Optional[int] = None
+    plot: Optional[str] = None
+    poster_url: Optional[str] = None

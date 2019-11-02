@@ -28,6 +28,7 @@ env = environ.Env(
     STATIC_URL=(str, "/static/"),  # URL path that server will server static files from
     STATIC_ROOT=(str, None),  # Collect static files here
     DATABASE=(str, "sqlite:///" + repo_root("db.sqlite3")),
+    OMDB_API_KEY=(str, ""),  # REQUIRED if omdb is used
 )
 
 
@@ -216,3 +217,7 @@ if not DEBUG:
 # Local security
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o550
 FILE_UPLOAD_PERMISSIONS = 0o640
+
+
+# Other
+OMDB_API_KEY = env("OMDB_API_KEY")

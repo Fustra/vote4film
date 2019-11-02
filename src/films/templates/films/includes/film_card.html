@@ -1,0 +1,51 @@
+{% comment %}
+Takes in:
+  - {{ film }}
+{% endcomment %}
+
+{% load films_extras %}
+
+<style>
+  .films-card {
+    margin: 1em;
+  }
+  .films-img {
+    max-width: 6em;
+    float: left;
+    margin-right: 1em;
+  }
+  .films-title {
+    margin: 0em;
+    margin-right: 1em;
+    display: inline;
+  }
+  .films-tags {
+    display: inline;
+  }
+  .films-tag {
+    margin-right: 1em;
+    display: inline-block;
+  }
+</style>
+
+<section class="films-card">
+  <h2 class="films-title">{{ film.title }}</h2>
+  <a href="{{ film.poster_url }}">
+    <img class="films-img" src="{{ film.poster_url }}" />
+  </a>
+
+  <section class="films-tags">
+    <div class="films-tag">
+      {{ film.runtime_mins|duration_format }}
+    </div>
+    <div class="films-tag">
+      <a href="{{ film.imdb }}">
+        <img src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
+          style="max-height: 1em;" />
+        {{ film.imdb_rating }}
+      </a>
+    </div>
+  </section>
+
+  <p>{{ film.plot }}
+</section>
