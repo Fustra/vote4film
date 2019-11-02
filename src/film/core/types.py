@@ -17,6 +17,7 @@ class AgeRating(Enum):
 @dataclass
 class Film:
     imdb: str
+    title: str
     year: int
     age_rating: AgeRating
     imdb_rating: float

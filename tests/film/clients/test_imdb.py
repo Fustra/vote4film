@@ -18,5 +18,9 @@ def test_get_film():
     result = imdb.get_film(URL)
 
     assert result == types.Film(
-        imdb=URL, year=2012, age_rating=types.AgeRating.AGE_18, imdb_rating=8.4
+        imdb=URL,
+        title="Django Unchained",
+        year=2012,
+        age_rating=types.AgeRating.AGE_18,
+        imdb_rating=8.4,
     )

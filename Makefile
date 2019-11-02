@@ -38,3 +38,13 @@ check:
 	@poetry run isort --check --recursive src
 
 	@echo -e "\n${COLOR_GREEN}All Good!${NO_COLOR}"
+
+
+## fix:	Fix checks where possible (black + isort).
+.PHONY: fix
+fix:
+	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
+	@poetry run black --target-version py37 src
+
+	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
+	@poetry run isort --recursive src
