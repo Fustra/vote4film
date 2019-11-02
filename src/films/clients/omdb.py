@@ -15,7 +15,9 @@ def get_film(api_key, url: str) -> types.Film:
 
     title = json["Title"]
     year = int(json["Year"])
-    age_rating = types.AgeRating(json["Rated"].replace("R", "18"))
+    age_rating = types.AgeRating(
+        json["Rated"].replace("R", "18").replace("PG-13", "12")
+    )
     imdb_rating = float(json["imdbRating"])
     runtime_mins = None
     if "min" in json["Runtime"]:
