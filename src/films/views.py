@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 
 from films.clients import omdb

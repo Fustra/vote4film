@@ -1,12 +1,11 @@
 from django.contrib import messages
 from django.db.models import Sum
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
-from django.urls import reverse
 
 from films.models import Film
-
 from votes.forms import VoteForm
 from votes.models import Vote
 
