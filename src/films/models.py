@@ -19,18 +19,18 @@ class Film(models.Model):
         (AGE_18, "18+"),
     ]
 
-    imdb = models.URLField(help_text="Link to the IMDB page")
+    imdb = models.URLField(verbose_name="IMDB Link")
     title = models.CharField(max_length=255)
-    year = models.PositiveIntegerField(help_text="Year of Release")
+    year = models.PositiveIntegerField(verbose_name="Year of Release")
     age_rating = models.CharField(max_length=3, choices=AGE_RATING_CHOICES)
-    imdb_rating = models.FloatField(help_text="Rating on IMDB")
-    trailer = models.URLField(null=True, blank=True, help_text="Link to a trailer")
+    imdb_rating = models.FloatField()
+    trailer = models.URLField(verbose_name="Trailer Link", null=True, blank=True)
     genre = models.CharField(null=True, blank=True, max_length=255)
     runtime_mins = models.PositiveIntegerField(null=True, blank=True)
     plot = models.TextField(null=True, blank=True)
     poster_url = models.URLField(null=True, blank=True)
-    is_available = models.BooleanField(default=False, help_text="Do we have it?")
-    is_watched = models.BooleanField(default=False, help_text="Have we watched it?")
+    is_available = models.BooleanField(verbose_name="Do we have it?", default=False)
+    is_watched = models.BooleanField(verbose_name="Have we watched it?", default=False)
 
     def get_absolute_url(self):
         return reverse("films:film-update", kwargs={"pk": self.pk})
@@ -39,4 +39,4 @@ class Film(models.Model):
         return f"{self.title} ({self.year}) [{self.age_rating}]"
 
     def __repr__(self):
-        return f"<Film(pk={self.pk}>"
+        return f"<Film(pk={self.pk})>"

@@ -6,10 +6,6 @@ from films.clients import omdb
 from films.models import Film
 
 
-class FilmList(ListView):
-    model = Film
-
-
 class FilmCreate(CreateView):
     model = Film
     fields = ["imdb", "is_available"]
