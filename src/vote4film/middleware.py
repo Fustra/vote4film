@@ -43,7 +43,6 @@ def login_required_middleware(get_response):
     exceptions = {"/admin/login/"}
 
     def middleware(request):
-        print("ASD")
         if request.path in exceptions:
             return get_response(request)
         return login_required(get_response, login_url=reverse("admin:login"))(request)
