@@ -1,3 +1,5 @@
+import urllib.parse
+
 from django.db import models
 from django.urls import reverse
 
@@ -31,6 +33,18 @@ class Film(models.Model):
     poster_url = models.URLField(null=True, blank=True)
     is_available = models.BooleanField(verbose_name="Do we have it?", default=False)
     is_watched = models.BooleanField(verbose_name="Have we watched it?", default=False)
+
+    @property
+    def bbfc_search(self):
+        url_path = urllib.parse.quote(f"{self.title}")
+        return f"https://bbfc.co.uk/search/releases/{url_path}"
+
+    @property
+    def youtube_search(self):
+        query_string = urllib.parse.urlencode(
+            {"search_query": f"{self.title} {self.year} Trailer"}
+        )
+        return f"https://www.youtube.com/results?{query_string}"
 
     def get_absolute_url(self):
         return reverse("films:film-update", kwargs={"pk": self.pk})

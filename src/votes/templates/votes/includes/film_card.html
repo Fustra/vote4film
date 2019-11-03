@@ -24,7 +24,7 @@ Takes in:
   .films-img {
     max-width: 7em;
     float: left;
-    margin-right: 1em;
+    margin-right: 0.75em;
   }
   .films-content {
     padding-top: 0.5em;
@@ -42,8 +42,16 @@ Takes in:
   .films-tag {
     display: inline-block;
   }
+  .films-tag__year {
+    font-size: small;
+  }
   .films-icon {
     max-height: 1.1875em;
+    vertical-align: text-bottom;
+  }
+  .films-icon__youtube {
+    height: 1.25em;
+    max-height: 1.25em;
     vertical-align: text-bottom;
   }
   .films-tag a {
@@ -93,26 +101,30 @@ Takes in:
     <h2 class="films-title">{{ film.title }}</h2>
 
     <section class="films-tags">
-      <div class="films-tag">
+      <div class="films-tag films-tag__year">
         ({{ film.year }})
-      </div> ·
+      </div>
       <div class="films-tag">
-        <img class="films-icon" src="
-          {% if film.age_rating == "U" %}
-            https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
-          {% elif film.age_rating == "PG" %}
-            https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
-          {% elif film.age_rating == "12" %}
-            https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
-          {% elif film.age_rating == "15" %}
-            https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
-          {% elif film.age_rating == "18" %}
-            https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
-          {% endif %}
-        "/>
-      </div> ·
+        ·
+        <a href="{{ film.bbfc_search }}">
+          <img title="IMDB age rating - may not be accurate!" class="films-icon" src="
+            {% if film.age_rating == "U" %}
+              https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
+            {% elif film.age_rating == "PG" %}
+              https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
+            {% elif film.age_rating == "12" %}
+              https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
+            {% elif film.age_rating == "15" %}
+              https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
+            {% elif film.age_rating == "18" %}
+              https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
+            {% endif %}
+          "/>
+        </a>
+      </div>
       <div class="films-tag">
-        <a href="{{ film.imdb }}">
+        ·
+        <a title="View film information on IMDB" href="{{ film.imdb }}">
           <img class="films-icon"
             src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
           />&thinsp;<span class="
@@ -129,11 +141,20 @@ Takes in:
           </span>
         </a>
       </div>
+      <div class="films-tag">
+        ·
+        <a title="Search YouTube" href="{{ film.youtube_search }}">
+          <img class="films-icon films-icon__youtube" src="https://youtube.com/favicon.ico" />
+        </a>
+      </div>
+
       <br>
-      <div class="films-tag">
+
+      <div style="display: inline;" class="films-tag">
         <em>{{ film.genre }}</em>
-      </div> ·
+      </div>
       <div class="films-tag">
+        ·
         <em>{{ film.runtime_mins|duration_format }}</em>
       </div>
     </section>

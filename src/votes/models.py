@@ -20,12 +20,12 @@ class Vote(models.Model):
     YES = 2
     YES_MAYBE = 1
     NO = -1
-    NO_SEEN_IT = -2
+    NO_WAY = -2
     AGE_RATING_CHOICES = [
         (YES, "Yes please"),
         (YES_MAYBE, "Yes - if I must"),
         (NO, "No thanks"),
-        (NO_SEEN_IT, "No - already seen it"),
+        (NO_WAY, "No - definitely not"),
     ]
 
     objects = VoteQuerySet.as_manager()
