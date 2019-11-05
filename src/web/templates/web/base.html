@@ -21,7 +21,7 @@
 <nav>
   Upcoming
   | <a href="{% url 'votes:vote-create' %}">Vote</a>
-  | Calender
+  | <a href="{{ next_event_register_url }}">Calender</a>
   | <a href="{% url 'films:film-create' %}">Add Film</a>
   | <a href="{% url 'votes:vote-aggregate' %}">Films</a>
   | <a href="{% url 'admin:logout' %}">Logout {{ request.user.username }}</a>

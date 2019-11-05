@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "calender",
     "films",
     "votes",
     "web",
@@ -139,6 +140,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "calender.context_processors.next_event_register_url",
             ]
         },
     }

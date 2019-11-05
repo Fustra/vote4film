@@ -6,6 +6,7 @@ from films.models import Film
 
 class VoteQuerySet(models.QuerySet):
     def next_film_to_vote(self, user):
+        # TODO: Vote.objects should not return a Film.
         return (
             Film.objects.exclude(is_watched=True)
             .exclude(pk__in=Vote.objects.filter(user=user).values_list("film"))
