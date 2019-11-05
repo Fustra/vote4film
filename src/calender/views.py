@@ -28,7 +28,7 @@ class RegisterUpdate(UpdateView):
     def get_context_data(self, **kwargs):
         # Provide easier access to the event in the template
         context = super().get_context_data(**kwargs)
-        context["event"] = context["form"].initial["event"]
+        context["event"] = context["form"].instance.event
         return context
 
     def form_valid(self, form):
