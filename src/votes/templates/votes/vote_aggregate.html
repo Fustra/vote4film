@@ -5,5 +5,7 @@
   <h1>Films (In Order)</h1>
   {% for object in object_list %}
     {% include "votes/includes/film_card.html" with film=object only %}
+  {% empty %}
+    <p>There are no films added :(</p>
   {% endfor %}
 {% endblock %}
