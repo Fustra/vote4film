@@ -17,7 +17,7 @@ check:
 	@poetry --quiet check
 
 	@echo -e "${COLOR_BLUE}\n=== Pyflakes ===\n${NO_COLOR}"
-	@poetry run pyflakes src
+	@poetry run pyflakes src tests
 
 	@echo -e "${COLOR_BLUE}\n=== Security: Bandit ===\n${NO_COLOR}"
 	@poetry run bandit --recursive --quiet src
@@ -32,10 +32,10 @@ check:
 	@poetry run ./src/manage.py makemigrations --dry-run --check
 
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
-	@poetry run black --target-version py37 --check src
+	@poetry run black --target-version py37 --check src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
-	@poetry run isort --check --recursive src
+	@poetry run isort --check --recursive src tests
 
 	@echo -e "\n${COLOR_GREEN}All Good!${NO_COLOR}"
 
@@ -44,10 +44,10 @@ check:
 .PHONY: fix
 fix:
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
-	@poetry run black --target-version py37 src
+	@poetry run black --target-version py37 src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
-	@poetry run isort --recursive src
+	@poetry run isort --recursive src tests
 
 
 ## test:	Run tests.
