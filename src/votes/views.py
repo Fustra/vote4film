@@ -8,6 +8,7 @@ from django.views.generic.edit import CreateView
 from films.models import Film
 from votes.forms import VoteForm
 from votes.models import Vote
+from votes.logic import next_film_to_vote
 
 
 class NoMoreFilms(Exception):
@@ -28,7 +29,7 @@ class VoteCreate(CreateView):
     def get_initial(self):
         # Set the film that we are voting for
         initial = super().get_initial()
-        film = Vote.objects.next_film_to_vote(self.request.user)
+        film = next_film_to_vote(self.request.user)
         if not film:
             raise NoMoreFilms("No more films to vote for")
 
@@ -60,7 +61,7 @@ class VoteCreate(CreateView):
 
     def get_success_url(self):
         # Continue reviewing if and only if there are cards to review
-        if Vote.objects.next_film_to_vote(self.request.user):
+        if next_film_to_vote(self.request.user):
             return reverse("votes:vote-create")
         else:
             messages.success(self.request, "You have voted for all of the films.")

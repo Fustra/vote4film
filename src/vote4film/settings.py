@@ -142,6 +142,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "calender.context_processors.next_event_register_url",
+                "votes.context_processors.is_vote_available",
             ]
         },
     }

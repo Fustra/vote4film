@@ -1,18 +1,6 @@
 from django.conf import settings
 from django.db import models
 
-from films.models import Film
-
-
-class VoteQuerySet(models.QuerySet):
-    def next_film_to_vote(self, user):
-        # TODO: Vote.objects should not return a Film.
-        return (
-            Film.objects.exclude(is_watched=True)
-            .exclude(pk__in=Vote.objects.filter(user=user).values_list("film"))
-            .first()
-        )
-
 
 class Vote(models.Model):
     class Meta:
@@ -28,8 +16,6 @@ class Vote(models.Model):
         (NO, "No thanks"),
         (NO_WAY, "No - definitely not"),
     ]
-
-    objects = VoteQuerySet.as_manager()
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     film = models.ForeignKey("films.Film", on_delete=models.CASCADE)
