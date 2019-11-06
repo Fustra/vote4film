@@ -2,7 +2,7 @@
 
 
 {% block content %}
-  <p><a href="https://m.imdb.com/find?q=&s=tt&ttype=ft">Go to IMDB</a>
+  <p><a target="_blank" href="https://m.imdb.com/find?q=&s=tt&ttype=ft">Search on IMDB</a> (copy the link when you find the film and come back).
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

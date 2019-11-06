@@ -5,7 +5,7 @@
 {% block content %}
   <h1>Upcoming</h1>
   {% if event %}
-    <h2>{{ event.date|naturalday }}</h2>
+    <h2>{{ event.date|naturalday|capfirst }}</h2>
   {% else %}
     <p>No upcoming event.</p>
   {% endif %}
