@@ -7,8 +7,8 @@ from django.views.generic.edit import CreateView
 
 from films.models import Film
 from votes.forms import VoteForm
-from votes.models import Vote
 from votes.logic import next_film_to_vote
+from votes.models import Vote
 
 
 class NoMoreFilms(Exception):

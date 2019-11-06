@@ -4,8 +4,17 @@ from django.conf import settings
 from django.db import models
 
 
+class EventQuerySet(models.QuerySet):
+    def future_events(self):
+        # TODO: This might not be right even for Europe/London!
+        today = datetime.utcnow().date()
+        return self.filter(date__gte=today).order_by("date")
+
+
 class Event(models.Model):
     date = models.DateField(unique=True)
+
+    objects = EventQuerySet.as_manager()
 
     def __str__(self):
         return f"Event on {self.date}"
@@ -16,13 +25,17 @@ class Event(models.Model):
 
 class RegisterQuerySet(models.QuerySet):
     def next_event_register(self, user):
-        # TODO: This might not be right even for Europe/London!
-        today = datetime.utcnow().date()
-        next_event = Event.objects.filter(date__gte=today).order_by("date").first()
+        next_event = Event.objects.future_events().first()
         if not next_event:
             return Register.objects.none()
 
         return Register.objects.get_or_create(user=user, event=next_event)[0]
+
+    def present_for(self, event):
+        return self.filter(event=event, is_present=True).select_related("user")
+
+    def absent_for(self, event):
+        return self.filter(event=event, is_present=False).select_related("user")
 
 
 class Register(models.Model):

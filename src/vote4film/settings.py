@@ -104,6 +104,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "calender",
     "films",
+    "schedule",
     "votes",
     "web",
 ]

@@ -4,6 +4,11 @@ from django.db import models
 from django.urls import reverse
 
 
+class FilmQuerySet(models.QuerySet):
+    def potentially_watchable(self):
+        return self.filter(is_watched=False, is_available=True)
+
+
 class Film(models.Model):
     class Meta:
         unique_together = [["title", "year"]]
@@ -20,6 +25,8 @@ class Film(models.Model):
         (AGE_15, "15+"),
         (AGE_18, "18+"),
     ]
+
+    objects = FilmQuerySet.as_manager()
 
     imdb = models.URLField(verbose_name="IMDB Link")
     title = models.CharField(max_length=255)

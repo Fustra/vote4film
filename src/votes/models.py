@@ -10,7 +10,7 @@ class Vote(models.Model):
     YES_MAYBE = 1
     NO = -1
     NO_WAY = -2
-    AGE_RATING_CHOICES = [
+    VOTE_CHOICES = [
         (YES, "Yes please"),
         (YES_MAYBE, "Yes - if I must"),
         (NO, "No thanks"),
@@ -19,7 +19,7 @@ class Vote(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     film = models.ForeignKey("films.Film", on_delete=models.CASCADE)
-    choice = models.IntegerField(choices=AGE_RATING_CHOICES)
+    choice = models.IntegerField(choices=VOTE_CHOICES)
 
     def __str__(self):
         return f"Vote by {self.user} of {self.choice} for {self.film}"

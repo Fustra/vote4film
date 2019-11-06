@@ -19,13 +19,13 @@
 </style>
 
 <nav>
-  Upcoming
+  <a href="{% url 'schedule:schedule' %}">Upcoming</a>
   {% if is_vote_available %}
     | <a href="{% url 'votes:vote-create' %}">Vote</a>
   {% else %}
     | No vote
   {% endif %}
-  {% if next_event_registered_url %}
+  {% if next_event_register_url %}
     | <a href="{{ next_event_register_url }}">Calender</a>
   {% else %}
     | No events
