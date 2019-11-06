@@ -1,5 +1,8 @@
 # Vote4Film
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+
 Simplify film selection for regular film nights.
 
 ## Development
