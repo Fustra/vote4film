@@ -4,6 +4,7 @@ from films.core import types
 
 
 def get_film(api_key, url: str) -> types.Film:
+    url = normalise_url(url)
     if not url.startswith("https://www.imdb.com/title/"):
         raise ValueError("Must be a direct link to a specific IMDB film")
 
@@ -37,3 +38,10 @@ def get_film(api_key, url: str) -> types.Film:
         plot=plot,
         poster_url=poster_url,
     )
+
+
+def normalise_url(url):
+    if url.startswith("https://m.imdb.com"):
+        url = url[len("https://m.imdb.com") :]
+        url = "https://www.imdb.com" + url
+    return url

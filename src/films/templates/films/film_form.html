@@ -2,6 +2,7 @@
 
 
 {% block content %}
+  <p><a href="https://m.imdb.com/find?q=&s=tt&ttype=ft">Go to IMDB</a>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

@@ -39,6 +39,9 @@ Takes in:
   .films-tags {
     display: inline;
   }
+  .film-tags-group {
+    display: inline-block;
+  }
   .films-tag {
     display: inline-block;
   }
@@ -104,48 +107,50 @@ Takes in:
       <div class="films-tag films-tag__year">
         ({{ film.year }})
       </div>
-      <div class="films-tag">
-        ·
-        <a href="{{ film.bbfc_search }}">
-          <img title="IMDB age rating - may not be accurate!" class="films-icon" src="
-            {% if film.age_rating == "U" %}
-              https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
-            {% elif film.age_rating == "PG" %}
-              https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
-            {% elif film.age_rating == "12" %}
-              https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
-            {% elif film.age_rating == "15" %}
-              https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
-            {% elif film.age_rating == "18" %}
-              https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
-            {% endif %}
-          "/>
-        </a>
-      </div>
-      <div class="films-tag">
-        ·
-        <a title="View film information on IMDB" href="{{ film.imdb }}">
-          <img class="films-icon"
-            src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
-          />&thinsp;<span class="
-            {% if film.imdb_rating >= 8 %}
-              films-great
-            {% elif film.imdb_rating >= 7.5 %}
-              films-good
-            {% elif film.imdb_rating >= 7 %}
-              films-meh
-            {% else %}
-              films-bad
-            {% endif %}
-          ">{{ film.imdb_rating }}
-          </span>
-        </a>
-      </div>
-      <div class="films-tag">
-        ·
-        <a title="Search YouTube" href="{{ film.youtube_search }}">
-          <img class="films-icon films-icon__youtube" src="https://youtube.com/favicon.ico" />
-        </a>
+
+      <div class="film-tags-group">
+        <div class="films-tag">
+          <a href="{{ film.bbfc_search }}">
+            <img title="IMDB age rating - may not be accurate!" class="films-icon" src="
+              {% if film.age_rating == "U" %}
+                https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
+              {% elif film.age_rating == "PG" %}
+                https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
+              {% elif film.age_rating == "12" %}
+                https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
+              {% elif film.age_rating == "15" %}
+                https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
+              {% elif film.age_rating == "18" %}
+                https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
+              {% endif %}
+            "/>
+          </a>
+        </div>
+        <div class="films-tag">
+          ·
+          <a title="View film information on IMDB" href="{{ film.imdb }}">
+            <img class="films-icon"
+              src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
+            />&thinsp;<span class="
+              {% if film.imdb_rating >= 8 %}
+                films-great
+              {% elif film.imdb_rating >= 7.5 %}
+                films-good
+              {% elif film.imdb_rating >= 7 %}
+                films-meh
+              {% else %}
+                films-bad
+              {% endif %}
+            ">{{ film.imdb_rating }}
+            </span>
+          </a>
+        </div>
+        <div class="films-tag">
+          ·
+          <a title="Search YouTube" href="{{ film.youtube_search }}">
+            <img class="films-icon films-icon__youtube" src="https://youtube.com/favicon.ico" />
+          </a>
+        </div>
       </div>
 
       <br>
