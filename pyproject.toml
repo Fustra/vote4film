@@ -3,8 +3,22 @@ name = "vote4film"
 version = "1.0.0"
 description = "Easy scheduling for regular film nights"
 homepage = "https://github.com/Fustra/vote4film/"
+repository = "https://github.com/Fustra/vote4film/"
 authors = ["QasimK <noreply@QasimK.io>"]
 license = "AGPL-3.0"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Environment :: No Input/Output (Daemon)",
+    "Natural Language :: English",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+]
+packages = [
+    { include = "**/*.py", from = "src" },
+]
+
+[tool.poetry.scripts]
+vote4film = 'manage:main'
 
 [tool.poetry.dependencies]
 python = "^3.7"
