@@ -1,7 +1,8 @@
 [tool.poetry]
 name = "vote4film"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "Easy scheduling for regular film nights"
+homepage = "https://github.com/Fustra/vote4film/"
 authors = ["QasimK <noreply@QasimK.io>"]
 license = "AGPL-3.0"
 
