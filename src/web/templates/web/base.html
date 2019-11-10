@@ -32,7 +32,7 @@
   {% endif %}
   | <a href="{% url 'films:film-create' %}">Add Film</a>
   | <a href="{% url 'votes:vote-aggregate' %}">Films</a>
-  | <a href="{% url 'admin:logout' %}">Logout {{ request.user.username }}</a>
+  | <a href="{% url 'admin:logout' %}" style="display: inline-block">Logout {{ request.user.username }}</a>
   <hr>
 </nav>
 
