@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "vote4film"
-version = "1.0.0"
+version = "1.0.1"
 description = "Easy scheduling for regular film nights"
 homepage = "https://github.com/Fustra/vote4film/"
 repository = "https://github.com/Fustra/vote4film/"
+readme = "README.md"
 authors = ["QasimK <noreply@QasimK.io>"]
 license = "AGPL-3.0"
 classifiers = [

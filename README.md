@@ -1,9 +1,8 @@
 # Vote4Film
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-
 Simplify film selection for regular film nights.
+
+This is a WSGI application.
 
 ## Development
 
@@ -15,6 +14,11 @@ Simplify film selection for regular film nights.
 ### Publishing
 
 This application will be published on PyPi.
+
+1. Ensure you have configured Poetry repositories including `TestPyPi`
+2. Test the build with `poetry build`
+3. `poetry publish --build -r testpypi` to upload to the test repository
+4. `poetry publish --build` to release
 
 ## Deployment
 
