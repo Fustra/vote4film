@@ -19,6 +19,10 @@ is dynamic HTML served by Django (no JavaScript is used).
 3. `poetry run ./src/vote4film/manage.py runserver_plus`
 4. `make fix`, `make check` and `make test` before committing
 
+### Contributing
+
+Pull requests are welcome :)
+
 ### Publishing
 
 This application is published on PyPi.
@@ -35,7 +39,16 @@ To publish to the test repository:
 
 ## Deployment
 
-Unfortunately, I will not provide any guidance here.
+Unfortunately, I will not provide detailed guidance for production deployment.
+
+Some general tips:
+
+* Create a virtualenv, e.g. in `~/virtualenv`
+* Install with `pip install vote4film[postgres]`
+* Write the configuration at `~/.config/vote4film/local.env`
+* Use Postgres as the database
+* Use Nginx/uWSGI to to serve the site (with HTTPS)
+* Run Django management commands using `./virtualenv/bin/vote4film`
 
 ## Changelog
 
