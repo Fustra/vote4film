@@ -54,7 +54,7 @@ Some general tips:
 
 ### v1.0.5 - 2019/11/12
 
-- Add optional postgres support, e.g. pip install vote4film[postgres]
+- Add optional postgres support, e.g. `pip install vote4film[postgres]`
 
 ### v1.0.4 - 2019/11/12
 
