@@ -34,7 +34,9 @@ env = environ.Env(
 
 
 if (XDG_CONFIG_HOME / "vote4film/local.env").exists():
-    config_file = environ.Path(XDG_CONFIG_HOME / "vote4film/local.env", required=True)
+    config_file = str(
+        environ.Path(XDG_CONFIG_HOME / "vote4film/local.env", required=True)
+    )
 else:
     config_file = repo_root("local.env", required=True)
 

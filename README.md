@@ -32,6 +32,11 @@ Unfortunately, I will not provide any guidance here.
 
 ## Changelog
 
+### v1.04 - 2019/11/12
+
+- Fix bug loading config from XDG config home (sigh)
+- Fix django-extensions being missed from dependencies
+
 ### v1.03 - 2019/11/12
 
 - Fix config sub-directory used in XDG config home
