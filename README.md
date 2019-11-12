@@ -9,7 +9,8 @@ Simplify film selection for regular film nights. Participants can:
 
 Admins can set the schedule of film nights.
 
-This is a simple WSGI Web Application.
+This is a simple WSGI Web Application. The back-end is Django, and the front-end
+is dynamic HTML served by Django (no JavaScript is used).
 
 ## Development
 
