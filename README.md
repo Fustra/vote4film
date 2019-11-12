@@ -38,20 +38,20 @@ Unfortunately, I will not provide any guidance here.
 
 ## Changelog
 
-### v1.05 - 2019/11/12
+### v1.0.5 - 2019/11/12
 
 - Add optional postgres support, e.g. pip install vote4film[postgres]
 
-### v1.04 - 2019/11/12
+### v1.0.4 - 2019/11/12
 
 - Fix bug loading config from XDG config home (sigh)
 - Fix django-extensions being missed from dependencies
 
-### v1.03 - 2019/11/12
+### v1.0.3 - 2019/11/12
 
 - Fix config sub-directory used in XDG config home
 
-### v1.02 - 2019/11/12
+### v1.0.2 - 2019/11/12
 
 - Load configuration from XDG config home
 
