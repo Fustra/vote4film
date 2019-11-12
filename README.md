@@ -32,7 +32,11 @@ Unfortunately, I will not provide any guidance here.
 
 ## Changelog
 
-### Unreleased
+### v1.03 - 2019/11/12
+
+- Fix config sub-directory used in XDG config home
+
+### v1.02 - 2019/11/12
 
 - Load configuration from XDG config home
 
