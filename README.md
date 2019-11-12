@@ -25,7 +25,7 @@ This application is published on PyPi.
 1. Ensure you have configured the PyPi repository with Poetry (one-off)
 2. Add the release notes in this README.md
 3. `poetry bump minor` to bump the major/minor/patch version
-3. `poetry publish --build` to release
+4. `poetry publish --build` to release
 
 To publish to the test repository:
 
