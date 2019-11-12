@@ -32,6 +32,10 @@ Unfortunately, I will not provide any guidance here.
 
 ## Changelog
 
+### v1.05 - 2019/11/12
+
+- Add optional postgres support, e.g. pip install vote4film[postgres]
+
 ### v1.04 - 2019/11/12
 
 - Fix bug loading config from XDG config home (sigh)
