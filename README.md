@@ -20,7 +20,7 @@ This is a simple WSGI Web Application.
 
 ### Publishing
 
-This application will be published on PyPi.
+This application is published on PyPi.
 
 1. Ensure you have configured the PyPi repository with Poetry (one-off)
 2. Add the release notes in this README.md
