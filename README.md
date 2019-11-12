@@ -32,6 +32,10 @@ Unfortunately, I will not provide any guidance here.
 
 ## Changelog
 
+### Unreleased
+
+- Load configuration from XDG config home
+
 ### v1.0.1 - 2019/11/10
 
 - First release of Vote4Film.

@@ -14,6 +14,7 @@ import sys
 
 import environ
 from django.core.exceptions import ImproperlyConfigured
+from xdg import XDG_CONFIG_HOME
 
 settings_path = environ.Path(__file__) - 1
 django_app = settings_path - 1
@@ -32,10 +33,14 @@ env = environ.Env(
 )
 
 
+if (XDG_CONFIG_HOME / "vote4food/local.env").exists():
+    config_file = environ.Path(XDG_CONFIG_HOME / "vote4food/local.env", required=True)
+else:
+    config_file = repo_root("local.env", required=True)
+
 # Read environment configuration (it must exist even for local developers)
 try:
-    # Read local .env configuration
-    environ.Env.read_env(repo_root("local.env", required=True))
+    environ.Env.read_env(config_file)
 except ImproperlyConfigured:
     print("-" * 80)
     print("Are you a developer running this locally?")
