@@ -29,10 +29,10 @@ check:
 	@poetry run ./src/manage.py check --deploy --fail-level WARNING
 
 	@echo -e "${COLOR_BLUE}\n=== Django - missing migrations ===\n${NO_COLOR}"
-	@poetry run ./src/manage.py makemigrations --dry-run --check
+	@poetry run ./src/manage.py makemigrations --dry-run --check --no-input
 
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
-	@poetry run black --target-version py37 --check src tests
+	@poetry run black --target-version py37 --quiet --check src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
 	@poetry run isort --check --recursive src tests
