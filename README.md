@@ -52,6 +52,11 @@ Some general tips:
 
 ## Changelog
 
+### v1.0.6 - 2019/11/13
+
+- Fix url patterns for internal apps in installed environment
+- Fix missing template files in PyPi package (so typical!)
+
 ### v1.0.5 - 2019/11/12
 
 - Add optional postgres support, e.g. `pip install vote4film[postgres]`

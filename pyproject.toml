@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vote4film"
-version = "1.0.5"
+version = "1.0.6"
 description = "Easy scheduling for regular film nights"
 homepage = "https://github.com/Fustra/vote4film/"
 repository = "https://github.com/Fustra/vote4film/"
