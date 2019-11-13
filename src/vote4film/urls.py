@@ -18,13 +18,19 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 
+import calender.urls
+import films.urls
+import schedule.urls
+import votes.urls
+import web.urls
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("calender/", include("calender.urls")),
-    path("films/", include("films.urls")),
-    path("schedule/", include("schedule.urls")),
-    path("votes/", include("votes.urls")),
-    path("", include("web.urls")),
+    path("calender/", include((calender.urls.urlpatterns, calender.urls.app_name))),
+    path("films/", include((films.urls.urlpatterns, films.urls.app_name))),
+    path("schedule/", include((schedule.urls.urlpatterns, schedule.urls.app_name))),
+    path("votes/", include((votes.urls.urlpatterns, votes.urls.app_name))),
+    path("", include((web.urls.urlpatterns, web.urls.app_name))),
 ]
 
 
