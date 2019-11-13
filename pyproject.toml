@@ -17,6 +17,14 @@ classifiers = [
 packages = [
     { include = "**/*.py", from = "src" },
 ]
+include = [
+    "src/**/*.html",
+    "src/**/*.css",
+    "src/**/*.js",
+
+#   Warning: This includes .egg-info
+#    "src/**/*.txt",
+]
 
 [tool.poetry.scripts]
 vote4film = 'manage:main'
