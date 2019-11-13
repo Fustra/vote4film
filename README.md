@@ -48,9 +48,14 @@ Some general tips:
 * Write the configuration at `~/.config/vote4film/local.env`
 * Use Postgres as the database
 * Use Nginx/uWSGI to to serve the site (with HTTPS)
-* Run Django management commands using `./virtualenv/bin/vote4film`
+* Run Django management commands using `./virtualenv/bin/manage`
 
 ## Changelog
+
+### v1.0.8 - 2019/11/13
+
+- Rename management command from vote4film to manage
+- Stop trying to be smart about packaging
 
 ### v1.0.7 - 2019/11/13
 

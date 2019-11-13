@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vote4film"
-version = "1.0.7"
+version = "1.0.8"
 description = "Easy scheduling for regular film nights"
 homepage = "https://github.com/Fustra/vote4film/"
 repository = "https://github.com/Fustra/vote4film/"
@@ -15,16 +15,14 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
 ]
 packages = [
-    { include = "calender", from = "src"},
-    { include = "films", from = "src" },
-    { include = "schedule", from = "src" },
-    { include = "vote4film", from = "src" },
-    { include = "votes", from = "src" },
-    { include = "web", from = "src" },
+    { include = "src" }
+]
+exclude = [
+    "src/vote4film.egg-info/*"
 ]
 
 [tool.poetry.scripts]
-vote4film = 'manage:main'
+manage = 'manage:main'
 
 [tool.poetry.dependencies]
 python = "^3.7"
