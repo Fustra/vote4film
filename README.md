@@ -52,6 +52,10 @@ Some general tips:
 
 ## Changelog
 
+### v1.0.7 - 2019/11/13
+
+- The same fixes as v1.0.6 but for real this time
+
 ### v1.0.6 - 2019/11/13
 
 - Fix url patterns for internal apps in installed environment
@@ -76,4 +80,4 @@ Some general tips:
 
 ### v1.0.1 - 2019/11/10
 
-- First release of Vote4Film.
+- First release of Vote4Film
