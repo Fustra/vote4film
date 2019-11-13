@@ -52,6 +52,10 @@ Some general tips:
 
 ## Changelog
 
+### v1.0.9 - 2019/11/13
+
+- Actually let's not be too dumb about packaging
+
 ### v1.0.8 - 2019/11/13
 
 - Rename management command from vote4film to manage
