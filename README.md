@@ -52,6 +52,10 @@ Some general tips:
 
 ## Changelog
 
+### Unpublished
+
+- Show the register of present/absent users for upcoming films.
+
 ### v1.0.9 - 2019/11/13
 
 - Actually let's not be too dumb about packaging

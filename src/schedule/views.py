@@ -8,5 +8,11 @@ class Schedule(TemplateView):
 
     def get_context_data(self, **kwargs):
         kwargs = super().get_context_data(**kwargs)
-        kwargs["event"], kwargs["film"] = get_schedule()
+        (
+            kwargs["event"],
+            kwargs["film"],
+            kwargs["present_users"],
+            kwargs["absent_users"],
+            kwargs["unknown_users"],
+        ) = get_schedule()
         return kwargs

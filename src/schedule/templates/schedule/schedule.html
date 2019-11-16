@@ -15,4 +15,21 @@
   {% else %}
     <p>No upcoming film.</p>
   {% endif %}
+
+  <h2>Register</h2>
+  <ol>
+    {% for user in present_users %}
+      <li>✓ {{ user.username }}
+    {% endfor %}
+  </ol>
+  <ol>
+    {% for user in absent_users %}
+      <li>✗ {{ user.username }}
+    {% endfor %}
+  </ol>
+  <ol>
+    {% for user in unknown_users %}
+      <li>? {{ user.username }}
+    {% endfor %}
+  </ol>
 {% endblock %}

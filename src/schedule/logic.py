@@ -1,5 +1,7 @@
 from operator import attrgetter
 
+from django.contrib.auth import get_user_model
+
 from calender.models import Event, Register
 from films.models import Film
 
@@ -10,16 +12,18 @@ def get_schedule():
     if not event:
         return (None, None)
 
-    film = preferred_film(event)
-    return (event, film)
-
-
-def preferred_film(event):
-    """Return the preferred film for the given event."""
     present_users = set(
         register.user for register in Register.objects.present_for(event)
     )
     absent_users = set(register.user for register in Register.objects.absent_for(event))
+    unknown_users = set(get_user_model().objects.all()) - present_users - absent_users
+
+    film = preferred_film(event, present_users, absent_users)
+    return (event, film, present_users, absent_users, unknown_users)
+
+
+def preferred_film(event, present_users, absent_users):
+    """Return the preferred film for the given event."""
     films = films_by_score(present_users, absent_users)
     return films[0]
 
