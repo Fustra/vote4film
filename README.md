@@ -52,6 +52,10 @@ Some general tips:
 
 ## Changelog
 
+### Unpublished
+
+- Fix ranking films with zero votes as number one
+
 ### v1.1.0 - 2019/11/16
 
 - Show the register of present/absent users for upcoming films
