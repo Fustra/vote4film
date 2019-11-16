@@ -52,7 +52,7 @@ Some general tips:
 
 ## Changelog
 
-### Unpublished
+### v1.1.0 - 2019/11/16
 
 - Show the register of present/absent users for upcoming films
 - Fix not highlighting films that are not available to be watched
