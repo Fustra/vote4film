@@ -2,7 +2,7 @@
 
 
 {% block content %}
-  <h1>Films (In Order)</h1>
+  <h1>Films (in vote order)</h1>
   {% for object in object_list %}
     {% include "votes/includes/film_card.html" with film=object only %}
   {% empty %}

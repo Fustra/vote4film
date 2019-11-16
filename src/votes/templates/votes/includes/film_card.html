@@ -90,7 +90,7 @@ Takes in:
 </style>
 
 <section class="films-card
-  {% if film.is_unavailable %}
+  {% if not film.is_available %}
     films-card--unavailable
   {% endif %}
   {% if film.is_watched %}

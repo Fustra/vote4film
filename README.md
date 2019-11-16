@@ -54,7 +54,8 @@ Some general tips:
 
 ### Unpublished
 
-- Show the register of present/absent users for upcoming films.
+- Show the register of present/absent users for upcoming films
+- Fix not highlighting films that are not available to be watched
 
 ### v1.0.9 - 2019/11/13
 
