@@ -125,6 +125,8 @@ Takes in:
                 https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
               {% elif film.age_rating == "18" %}
                 https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
+              {% elif film.age_rating is None %}
+                https://bbfc.co.uk/sites/bbfc/themes/bbfc/images/icons/question.png
               {% endif %}
             "/>
           </a>

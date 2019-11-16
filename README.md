@@ -56,6 +56,7 @@ Some general tips:
 
 - Show the register of present/absent users for upcoming films
 - Fix not highlighting films that are not available to be watched
+- Fix parsing of "Not Rated" age ratings resulting in an error
 
 ### v1.0.9 - 2019/11/13
 

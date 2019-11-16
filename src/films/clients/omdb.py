@@ -16,9 +16,17 @@ def get_film(api_key, url: str) -> types.Film:
 
     title = json["Title"]
     year = int(json["Year"])
-    age_rating = types.AgeRating(
-        json["Rated"].replace("R", "18").replace("PG-13", "12").replace("TV-MA", "18")
-    )
+
+    if json["Rated"].lower() == "not rated":
+        # TODO: Retrieve age rating from BBFC
+        age_rating = None
+    else:
+        age_rating = types.AgeRating(
+            json["Rated"]
+            .replace("PG-13", "12")
+            .replace("TV-MA", "18")  # Compromise between 15 and 18
+            .replace("R", "18")
+        )
     imdb_rating = float(json["imdbRating"])
     genre = json["Genre"]
     runtime_mins = None
@@ -31,8 +39,8 @@ def get_film(api_key, url: str) -> types.Film:
         imdb=url,
         title=title,
         year=year,
-        age_rating=age_rating,
         imdb_rating=imdb_rating,
+        age_rating=age_rating,
         genre=genre,
         runtime_mins=runtime_mins,
         plot=plot,

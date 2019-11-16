@@ -14,7 +14,7 @@ class FilmCreate(CreateView):
         film = omdb.get_film(settings.OMDB_API_KEY, self.object.imdb)
         self.object.title = film.title
         self.object.year = film.year
-        self.object.age_rating = film.age_rating.value
+        self.object.age_rating = film.age_rating.value if film.age_rating else None
         self.object.imdb_rating = film.imdb_rating
         self.object.genre = film.genre
         self.object.runtime_mins = film.runtime_mins
