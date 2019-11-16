@@ -19,7 +19,7 @@ Takes in:
     background-color: lightcoral;
   }
   .films-card--watched {
-    background-color: lightyellow;
+    background-color: silver;
   }
   .films-img {
     max-width: 7em;
@@ -101,7 +101,10 @@ Takes in:
     <img class="films-img" src="{{ film.poster_url }}" />
   </a>
   <section class="films-content">
-    <h2 class="films-title">{{ film.title }}</h2>
+    <h2 class="films-title">
+      {{ film.title }}
+      {% if film.is_watched %}👀{% endif %}
+    </h2>
 
     <section class="films-tags">
       <div class="films-tag films-tag__year">
