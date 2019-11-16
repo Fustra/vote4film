@@ -37,6 +37,9 @@ class RegisterQuerySet(models.QuerySet):
     def absent_for(self, event):
         return self.filter(event=event, is_present=False).select_related("user")
 
+    def unknown_for(self, event):
+        raise NotImplementedError("# TODO: Create Register objects")
+
 
 class Register(models.Model):
     class Meta:
@@ -49,8 +52,13 @@ class Register(models.Model):
     is_present = models.NullBooleanField()
 
     def __str__(self):
-        text = "present" if self.is_present else "absent"
-        return f"{self.user} is {text} on {self.event.date}"
+        mapping = {
+            None: "an unknown",
+            True: "present",
+            False: "absent",
+        }
+        state = mapping[self.is_present]
+        return f"{self.user} is {state} on {self.event.date}"
 
     def __repr__(self):
         return f"<Register(pk={self.pk})>"
