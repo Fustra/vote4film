@@ -26,6 +26,9 @@ class Film(models.Model):
         (AGE_18, "18+"),
     ]
 
+    # IntegrityError message when add duplicate film
+    DUPLICATE_ERROR_TEXT = "UNIQUE constraint failed: films_film.title, films_film.year"
+
     objects = FilmQuerySet.as_manager()
 
     imdb = models.URLField(verbose_name="IMDB Link")

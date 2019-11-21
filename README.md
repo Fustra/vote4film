@@ -57,6 +57,7 @@ Some general tips:
 - Fix ranking films with zero votes as number one
 - Hide upcoming film until the user has registered for the next event
 - Clarify what will happen when adding a film by giving the user more choices
+- Fix HTTP 500 error when adding a film that was already added
 
 ### v1.1.0 - 2019/11/16
 

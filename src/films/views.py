@@ -1,4 +1,6 @@
 from django.conf import settings
+from django.db import IntegrityError
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 
@@ -21,7 +23,15 @@ class FilmCreate(CreateView):
         self.object.runtime_mins = film.runtime_mins
         self.object.plot = film.plot
         self.object.poster_url = film.poster_url
-        return super().form_valid(form)
+
+        try:
+            return super().form_valid(form)
+        except IntegrityError as err:
+            if err.args[0] == Film.DUPLICATE_ERROR_TEXT:
+                self.object = Film.objects.get(title=film.title, year=film.year)
+                return HttpResponseRedirect(self.get_success_url())
+
+            raise
 
     def get_success_url(self):
         if "_save" in self.request.POST:
