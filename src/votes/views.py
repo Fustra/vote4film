@@ -84,3 +84,11 @@ class VoteAggregate(ListView):
             .order_by("is_watched", "-score", "id")
             .prefetch_related("vote_set", "vote_set__user")
         )
+
+    def get_context_data(self, **kwargs):
+        # Provide easier access to film in the template
+        context = super().get_context_data(**kwargs)
+        context["num_to_watch"] = len(
+            [film for film in self.object_list if not film.is_watched]
+        )
+        return context
