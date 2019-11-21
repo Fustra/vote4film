@@ -172,22 +172,26 @@ Takes in:
     </section>
 
     <p>{{ film.plot }}
-    </p>
 
-    {% for vote in film.vote_set.all %}
-      <span class="
-        {% if vote.choice == 2 %}
-          votes-upup
-        {% elif vote.choice == 1 %}
-          votes-up
-        {% elif vote.choice == -1 %}
-          votes-down
-        {% elif vote.choice == -2 %}
-          votes-downdown
-        {% endif %}
-      ">
-        {{ vote.user.username|slice:":3" }}
-      </span>
-    {% endfor %}
+    <p>
+    {% if film.has_user_voted %}
+      {% for vote in film.vote_set.all %}
+        <span class="
+          {% if vote.choice == 2 %}
+            votes-upup
+          {% elif vote.choice == 1 %}
+            votes-up
+          {% elif vote.choice == -1 %}
+            votes-down
+          {% elif vote.choice == -2 %}
+            votes-downdown
+          {% endif %}
+        ">
+          {{ vote.user.username|slice:":3" }}
+        </span>
+      {% endfor %}
+    {% else %}
+      <a href="{% url 'votes:vote-create' %}">Vote for <small>(this)</small> film</a>
+    {% endif %}
   </section>
 </section>

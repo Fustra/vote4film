@@ -58,6 +58,7 @@ Some general tips:
 - Hide upcoming film until the user has registered for the next event
 - Clarify what will happen when adding a film by giving the user more choices
 - Fix HTTP 500 error when adding a film that was already added
+- Hide a film's votes from the user until they have voted
 
 ### v1.1.0 - 2019/11/16
 

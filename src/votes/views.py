@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.db.models import Sum, Value
+from django.db.models import Count, Q, Sum, Value
 from django.db.models.functions import Coalesce
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -77,7 +77,10 @@ class VoteAggregate(ListView):
         return (
             super()
             .get_queryset()
-            .annotate(score=Coalesce(Sum("vote__choice"), Value(0)))
+            .annotate(
+                score=Coalesce(Sum("vote__choice"), Value(0)),
+                has_user_voted=Count("vote", filter=Q(vote__user=self.request.user)),
+            )
             .order_by("is_watched", "-score", "id")
             .prefetch_related("vote_set", "vote_set__user")
         )

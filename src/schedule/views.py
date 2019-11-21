@@ -18,4 +18,10 @@ class Schedule(TemplateView):
             kwargs["unknown_users"],
         ) = get_schedule()
 
+        # TODO: Film hydration needs refactoring out
+        if kwargs["film"]:
+            kwargs["film"].has_user_voted = (
+                kwargs["film"].vote_set.filter(user=self.request.user).exists()
+            )
+
         return kwargs
