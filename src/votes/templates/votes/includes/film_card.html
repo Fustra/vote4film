@@ -194,7 +194,7 @@ Takes in:
           {{ vote.user.username|slice:":3" }}
         </span>
       {% endfor %}
-    {% elif not is_voting %}
+    {% elif not is_voting and not film.is_watched %}
       <a href="{% url 'votes:vote-create' %}">Vote for films</a>
     {% endif %}
   </section>
