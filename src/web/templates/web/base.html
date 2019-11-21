@@ -1,3 +1,9 @@
+{% comment %}
+Takes in:
+  - {{ next_event_register_url }}
+  - {{ next_event_registered }}
+{% endcomment %}
+
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,12 +30,19 @@
 <nav>
   <a href="{% url 'schedule:schedule' %}">Upcoming</a>
   {% if next_event_register_url %}
-    | <a href="{{ next_event_register_url }}">Calender</a>
+    |
+    {% if not next_event_registered %}
+      <strong>
+    {% endif %}
+      <a href="{{ next_event_register_url }}">Calender</a>
+    {% if not next_event_registered %}
+      </strong>
+    {% endif %}
   {% else %}
     | No events
   {% endif %}
   {% if is_vote_available %}
-    | <a href="{% url 'votes:vote-create' %}">Vote</a>
+    | <strong><a href="{% url 'votes:vote-create' %}">Vote</a></strong>
   {% else %}
     | No vote
   {% endif %}

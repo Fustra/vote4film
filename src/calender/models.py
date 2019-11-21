@@ -33,7 +33,7 @@ class RegisterQuerySet(models.QuerySet):
         if not register:
             return False
 
-        return register.is_present is not None
+        return register.is_registered
 
     def next_event_register(self, user):
         next_event = Event.objects.future_events().first()
@@ -61,6 +61,10 @@ class Register(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     is_present = models.NullBooleanField()
+
+    @property
+    def is_registered(self):
+        return self.is_present is not None
 
     def __str__(self):
         mapping = {

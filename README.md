@@ -55,6 +55,7 @@ Some general tips:
 ### Unpublished
 
 - Fix HTTP 500 error when adding a film that was already added (again)
+- Highlight calender and vote links when there is a user action to take
 
 ### v1.2.1 - 2019-11-21
 

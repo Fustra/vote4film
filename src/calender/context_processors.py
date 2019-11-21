@@ -9,10 +9,13 @@ def next_event_register_url(request):
 
     register = Register.objects.next_event_register(request.user)
     if not register:
-        return {}
+        return {
+            "next_event_registered": False,
+        }
 
     return {
         "next_event_register_url": reverse(
             "calender:register-update", args=(register.pk,)
-        )
+        ),
+        "next_event_registered": register.is_registered,
     }
