@@ -103,7 +103,9 @@ Takes in:
   <section class="films-content">
     <h2 class="films-title">
       {{ film.title }}
-      {% if film.is_watched %}👀{% endif %}
+      {% if film.is_watched %}
+        <span title="Already watched">👀</span>
+      {% endif %}
     </h2>
 
     <section class="films-tags">
