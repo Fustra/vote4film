@@ -29,7 +29,7 @@ This application is published on PyPi.
 
 1. Ensure you have configured the PyPi repository with Poetry (one-off)
 2. Add the release notes in this README.md
-3. `poetry bump minor` to bump the major/minor/patch version
+3. `poetry version minor` to bump the major/minor/patch version
 4. `poetry publish --build` to release
 
 To publish to the test repository:
@@ -53,6 +53,10 @@ Some general tips:
 ## Changelog
 
 ### Unpublished
+
+...
+
+### v1.2.0 - 2019-11-21
 
 - Fix ranking films with zero votes as number one
 - Hide upcoming film until the user has registered for the next event
