@@ -33,7 +33,7 @@ class RegisterQuerySet(models.QuerySet):
         if not register:
             return False
 
-        return bool(register.is_present)
+        return register.is_present is not None
 
     def next_event_register(self, user):
         next_event = Event.objects.future_events().first()

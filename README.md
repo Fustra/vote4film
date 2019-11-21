@@ -56,6 +56,7 @@ Some general tips:
 
 - Remove "film is not available" from the voting page
 - Remove "vote for this film" from the voting page
+- Fix the upcoming page asking absent users to register on calender
 
 ### v1.2.0 - 2019-11-21
 
