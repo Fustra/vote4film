@@ -26,10 +26,11 @@ class FilmCreate(CreateView):
 
         try:
             return super().form_valid(form)
-        except IntegrityError as err:
-            if err.args[0] == Film.DUPLICATE_ERROR_TEXT:
-                self.object = Film.objects.get(title=film.title, year=film.year)
-                return HttpResponseRedirect(self.get_success_url())
+        except IntegrityError:
+            # We cannot determine which constraint failed as the err text varies
+            # depending on the database backend, so we will rely on the get query.
+            self.object = Film.objects.get(title=film.title, year=film.year)
+            return HttpResponseRedirect(self.get_success_url())
 
             raise
 

@@ -54,7 +54,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix HTTP 500 error when adding a film that was already added (again)
 
 ### v1.2.1 - 2019-11-21
 
