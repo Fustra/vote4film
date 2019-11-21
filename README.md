@@ -54,7 +54,8 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Remove "film is not available" from the voting page
+- Remove "vote for this film" from the voting page
 
 ### v1.2.0 - 2019-11-21
 

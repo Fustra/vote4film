@@ -3,6 +3,8 @@ Takes in:
   - {{ film }}
   - {{ film.score }}
   - {{ film.vote_set.user }}
+  - {{ film.has_user_voted }}
+  - {{ is_voting }}
 {% endcomment %}
 
 {% load films_extras %}
@@ -16,7 +18,9 @@ Takes in:
     box-shadow: -3px 3px 6px 3px rgba(0, 0, 0, 0.25);
   }
   .films-card--unavailable {
+    {% if not is_voting %}
     background-color: lightcoral;
+    {% endif %}
   }
   .films-card--watched {
     background-color: silver;
@@ -190,8 +194,8 @@ Takes in:
           {{ vote.user.username|slice:":3" }}
         </span>
       {% endfor %}
-    {% else %}
-      <a href="{% url 'votes:vote-create' %}">Vote for <small>(this)</small> film</a>
+    {% elif not is_voting %}
+      <a href="{% url 'votes:vote-create' %}">Vote for films</a>
     {% endif %}
   </section>
 </section>
