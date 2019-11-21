@@ -6,6 +6,8 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input type="submit" value="Save" name="_save" style="font-weight: bold">
+    <input type="submit" value="Save and continue editing" name="_edit">
+    <input type="submit" value="Save and add another" name="_addanother">
   </form>
 {% endblock content %}

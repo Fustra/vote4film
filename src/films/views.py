@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 
 from films.clients import omdb
@@ -21,6 +22,14 @@ class FilmCreate(CreateView):
         self.object.plot = film.plot
         self.object.poster_url = film.poster_url
         return super().form_valid(form)
+
+    def get_success_url(self):
+        if "_save" in self.request.POST:
+            return reverse("votes:vote-create")
+        elif "_edit" in self.request.POST:
+            return super().get_success_url()
+        elif "_addanother" in self.request.POST:
+            return reverse("films:film-create")
 
 
 class FilmUpdate(UpdateView):

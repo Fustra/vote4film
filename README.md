@@ -56,6 +56,7 @@ Some general tips:
 
 - Fix ranking films with zero votes as number one
 - Hide upcoming film until the user has registered for the next event
+- Clarify what will happen when adding a film by giving the user more choices
 
 ### v1.1.0 - 2019/11/16
 
