@@ -2,6 +2,7 @@
 
 
 {% block content %}
+  <h1>Vote for a Film</h1>
   {% include "votes/includes/film_card.html" with film=film is_voting=1 only %}
 
   <form method="post">

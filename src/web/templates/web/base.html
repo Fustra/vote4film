@@ -23,15 +23,15 @@
 
 <nav>
   <a href="{% url 'schedule:schedule' %}">Upcoming</a>
-  {% if is_vote_available %}
-    | <a href="{% url 'votes:vote-create' %}">Vote</a>
-  {% else %}
-    | No vote
-  {% endif %}
   {% if next_event_register_url %}
     | <a href="{{ next_event_register_url }}">Calender</a>
   {% else %}
     | No events
+  {% endif %}
+  {% if is_vote_available %}
+    | <a href="{% url 'votes:vote-create' %}">Vote</a>
+  {% else %}
+    | No vote
   {% endif %}
   | <a href="{% url 'films:film-create' %}">Add Film</a>
   | <a href="{% url 'votes:vote-aggregate' %}">Films</a>
