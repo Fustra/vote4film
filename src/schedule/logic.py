@@ -10,7 +10,7 @@ def get_schedule():
     """Return a list of (Event, Film) based on votes and the register."""
     event = Event.objects.future_events().first()
     if not event:
-        return (None, None)
+        return (None, None, None, None, None)
 
     present_users = set(
         register.user for register in Register.objects.present_for(event)

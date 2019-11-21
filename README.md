@@ -55,6 +55,7 @@ Some general tips:
 ### Unpublished
 
 - Fix ranking films with zero votes as number one
+- Hide upcoming film until the user has registered for the next event
 
 ### v1.1.0 - 2019/11/16
 

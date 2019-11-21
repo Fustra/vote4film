@@ -24,6 +24,17 @@ class Event(models.Model):
 
 
 class RegisterQuerySet(models.QuerySet):
+    def has_registered(self, user):
+        next_event = Event.objects.future_events().first()
+        if not next_event:
+            return False
+
+        register = Register.objects.get(user=user, event=next_event)
+        if not register:
+            return False
+
+        return bool(register.is_present)
+
     def next_event_register(self, user):
         next_event = Event.objects.future_events().first()
         if not next_event:
