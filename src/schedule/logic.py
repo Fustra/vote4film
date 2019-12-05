@@ -38,8 +38,7 @@ def films_by_score(present_users, absent_users):
         return [None]
 
     score_films(films, present_users, absent_users)
-    # TODO: Then sort by when added
-    return sorted(films, key=attrgetter("_schedule_score"), reverse=True)
+    return sorted(films, key=lambda x: (-x._schedule_score, x.id))
 
 
 def score_films(films, present_users, absent_users):
