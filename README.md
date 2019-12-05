@@ -54,6 +54,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.2.2 - 2019-12-05
+
 - Fix HTTP 500 error when adding a film that was already added (again)
 - Highlight calender and vote links when there is a user action to take
 - Pick the oldest added film for upcoming when scores are a draw
