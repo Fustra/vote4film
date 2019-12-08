@@ -57,7 +57,7 @@ factory_boy = "^2.12"
 postgres = ["psycopg2"]
 
 [tool.black]
-target-version = ['py37']
+target-version = ['py38']
 
 [tool.isort]
 force_grid_wrap = 0

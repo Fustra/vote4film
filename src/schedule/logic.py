@@ -1,5 +1,3 @@
-from operator import attrgetter
-
 from django.contrib.auth import get_user_model
 
 from calender.models import Event, Register
