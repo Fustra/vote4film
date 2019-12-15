@@ -44,7 +44,7 @@ check:
 .PHONY: fix
 fix:
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
-	@poetry run black --target-version py37 src tests
+	@poetry run black src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
 	@poetry run isort --recursive src tests

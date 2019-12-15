@@ -66,7 +66,7 @@ class VoteCreate(CreateView):
             return reverse("votes:vote-create")
         else:
             messages.success(self.request, "You have voted for all of the films.")
-            return reverse("web:home")
+            return reverse("schedule:schedule")
 
 
 class VoteAggregate(ListView):

@@ -54,7 +54,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Redirect to upcoming schedule after voting for every film
 
 ### v1.2.2 - 2019-12-05
 
