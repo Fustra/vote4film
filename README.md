@@ -54,6 +54,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.2.3 - 2020-02-01
+
 - Redirect to upcoming schedule after voting for every film
 - Fix HTTP 500 error when on schedule page without registering for the event
 
