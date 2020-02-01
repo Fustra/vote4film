@@ -29,7 +29,7 @@ class RegisterQuerySet(models.QuerySet):
         if not next_event:
             return False
 
-        register = Register.objects.get(user=user, event=next_event)
+        register = Register.objects.filter(user=user, event=next_event).first()
         if not register:
             return False
 
