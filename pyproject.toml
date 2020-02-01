@@ -39,7 +39,7 @@ psycopg2 = {version = "^2.8", optional = true}
 
 [tool.poetry.dev-dependencies]
 # Checks
-black = {version = "=19.10b0", allows-prereleases = true}
+black = {version = "=19.10b0", allow-prereleases = true}
 isort = "^4.3"
 bandit = "^1.6"
 pyflakes = "^2.1"
