@@ -28,7 +28,7 @@ packages = [
 manage = 'manage:main'
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 django = "^2.2"
 django-environ = "^0.4.5"
 django-extensions = "^2.2"
@@ -46,7 +46,7 @@ pyflakes = "^2.1"
 safety = "^1.8"
 # Development helpers
 django-debug-toolbar = "^2.0"
-werkzeug = "^0.16.0"
+werkzeug = "^1.0"
 # Tests
 pytest = "^5.2"
 pytest-django = "^3.7"
