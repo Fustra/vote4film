@@ -1,10 +1,11 @@
 {% comment %}
 Takes in:
-  - {{ film }}
-  - {{ film.score }}
+  - {{ film }} = Film
+  - {{ film.score }} = int
   - {{ film.vote_set.user }}
-  - {{ film.has_user_voted }}
-  - {{ is_voting }}
+  - {{ film.has_user_voted }} = Bool
+  - {{ film.user_vote }} = Vote
+  - {{ is_voting }} = Bool
 {% endcomment %}
 
 {% load films_extras %}
@@ -178,7 +179,7 @@ Takes in:
     <p>{{ film.plot }}
 
     <p>
-    {% if film.has_user_voted %}
+    {% if not film.is_voting and film.has_user_voted %}
       {% for vote in film.vote_set.all %}
         <span class="
           {% if vote.choice == 2 %}
@@ -194,6 +195,9 @@ Takes in:
           {{ vote.user.username|slice:":3" }}
         </span>
       {% endfor %}
+      {% if film.user_vote %}
+        <a href="{% url 'votes:vote-update' film.user_vote.0.pk %}">(Change Vote)</a>
+      {% endif %}
     {% elif not is_voting and not film.is_watched %}
       <a href="{% url 'votes:vote-create' %}">Vote for films</a>
     {% endif %}

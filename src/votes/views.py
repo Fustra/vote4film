@@ -1,10 +1,10 @@
 from django.contrib import messages
-from django.db.models import Count, Q, Sum, Value
+from django.db.models import Count, Prefetch, Q, Sum, Value
 from django.db.models.functions import Coalesce
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from films.models import Film
 from votes.forms import VoteForm
@@ -69,6 +69,15 @@ class VoteCreate(CreateView):
             return reverse("schedule:schedule")
 
 
+class VoteUpdate(UpdateView):
+    model = Vote
+    fields = ["choice"]
+    template_name = "votes/vote_update_form.html"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
+
+
 class VoteAggregate(ListView):
     model = Film
     template_name = "votes/vote_aggregate.html"
@@ -82,7 +91,15 @@ class VoteAggregate(ListView):
                 has_user_voted=Count("vote", filter=Q(vote__user=self.request.user)),
             )
             .order_by("is_watched", "-score", "id")
-            .prefetch_related("vote_set", "vote_set__user")
+            .prefetch_related(
+                "vote_set",
+                "vote_set__user",
+                Prefetch(
+                    "vote_set",
+                    to_attr="user_vote",
+                    queryset=Vote.objects.filter(user=self.request.user),
+                ),
+            )
         )
 
     def get_context_data(self, **kwargs):
