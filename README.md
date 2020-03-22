@@ -54,7 +54,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix error adding film when age rating on IMDB/OMDB is "N/A"
 
 ### v1.2.3 - 2020-02-01
 

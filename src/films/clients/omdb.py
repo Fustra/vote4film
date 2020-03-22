@@ -17,7 +17,7 @@ def get_film(api_key, url: str) -> types.Film:
     title = json["Title"]
     year = int(json["Year"])
 
-    if json["Rated"].lower() == "not rated":
+    if json["Rated"].lower() in ("not rated", "n/a"):
         # TODO: Retrieve age rating from BBFC
         age_rating = None
     else:
