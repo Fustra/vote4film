@@ -31,7 +31,8 @@ class Film(models.Model):
     imdb = models.URLField(verbose_name="IMDB Link")
     title = models.CharField(max_length=255)
     year = models.PositiveIntegerField(verbose_name="Year of Release")
-    age_rating = models.CharField(null=True, max_length=3, choices=AGE_RATING_CHOICES)
+    imdb_age = models.CharField(null=True, max_length=3, choices=AGE_RATING_CHOICES)
+    bbfc_age = models.CharField(null=True, max_length=3, choices=AGE_RATING_CHOICES)
     imdb_rating = models.FloatField()
     trailer = models.URLField(verbose_name="Trailer Link", null=True, blank=True)
     genre = models.CharField(null=True, blank=True, max_length=255)
@@ -52,6 +53,10 @@ class Film(models.Model):
             {"search_query": f"{self.title} {self.year} Trailer"}
         )
         return f"https://www.youtube.com/results?{query_string}"
+
+    @property
+    def age_rating(self):
+        return self.bbfc_age or self.imdb_age
 
     def get_absolute_url(self):
         return reverse("films:film-update", kwargs={"pk": self.pk})

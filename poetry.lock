@@ -45,6 +45,27 @@ six = ">=1.10.0"
 stevedore = ">=1.20.0"
 
 [[package]]
+category = "main"
+description = "API service, library and parser for BBFC"
+name = "bbfcapi"
+optional = false
+python-versions = ">=3.8,<4.0"
+version = "2.0.2"
+
+[package.dependencies]
+pydantic = ">=1.4,<2.0"
+
+[package.extras]
+api = ["aiohttp (>=3.6,<4.0)", "pyhumps (>=1.3.1,<2.0.0)"]
+apis = ["pyhumps (>=1.3.1,<2.0.0)", "requests (>=2.23,<3.0)"]
+app = ["aiohttp (>=3.6,<4.0)", "beautifulsoup4 (>=4.8,<5.0)", "fastapi (>=0.52,<0.53)", "pyhumps (>=1.3.1,<2.0.0)", "uvicorn (>=0.11,<0.12)"]
+client = ["aiohttp (>=3.6,<4.0)"]
+clients = ["requests (>=2.23,<3.0)"]
+lib = ["aiohttp (>=3.6,<4.0)", "beautifulsoup4 (>=4.8,<5.0)"]
+libs = ["beautifulsoup4 (>=4.8,<5.0)", "requests (>=2.23,<3.0)"]
+parser = ["beautifulsoup4 (>=4.8,<5.0)"]
+
+[[package]]
 category = "dev"
 description = "The uncompromising code formatter."
 name = "black"
@@ -337,12 +358,33 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "1.8.1"
 
 [[package]]
+category = "main"
+description = "Data validation and settings management using python 3.6 type hinting"
+name = "pydantic"
+optional = false
+python-versions = ">=3.6"
+version = "1.4"
+
+[package.extras]
+dotenv = ["python-dotenv (>=0.10.4)"]
+email = ["email-validator (>=1.0.3)"]
+typing_extensions = ["typing-extensions (>=3.7.2)"]
+
+[[package]]
 category = "dev"
 description = "passive checker of Python programs"
 name = "pyflakes"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.1.1"
+
+[[package]]
+category = "main"
+description = "🐫  Convert strings (and dictionary keys) between snake case, camel case and pascal case in Python. Inspired by Humps for Node"
+name = "pyhumps"
+optional = false
+python-versions = "*"
+version = "1.3.1"
 
 [[package]]
 category = "dev"
@@ -603,7 +645,7 @@ version = "4.0.1"
 postgres = ["psycopg2"]
 
 [metadata]
-content-hash = "5847cd95e3e1dc378b2bd63bba5a0e75b55c1806304671eea18b605621bcf4ab"
+content-hash = "6de9a80d869e8fe189706a212a971425306f446d7297f05763fb71cff9960326"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -622,6 +664,10 @@ attrs = [
 bandit = [
     {file = "bandit-1.6.2-py2.py3-none-any.whl", hash = "sha256:336620e220cf2d3115877685e264477ff9d9abaeb0afe3dc7264f55fa17a3952"},
     {file = "bandit-1.6.2.tar.gz", hash = "sha256:41e75315853507aa145d62a78a2a6c5e3240fe14ee7c601459d0df9418196065"},
+]
+bbfcapi = [
+    {file = "bbfcapi-2.0.2-py3-none-any.whl", hash = "sha256:29959c84a5f55007920803bf0418d1196c482d5aaddf7478a8c7feb434bfbd07"},
+    {file = "bbfcapi-2.0.2.tar.gz", hash = "sha256:4bfbef29ac7caad109d7d67e0409f16e3087bf3e19e163be87b3cbf8bc969990"},
 ]
 black = [
     {file = "black-19.10b0-py36-none-any.whl", hash = "sha256:1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b"},
@@ -767,9 +813,29 @@ py = [
     {file = "py-1.8.1-py2.py3-none-any.whl", hash = "sha256:c20fdd83a5dbc0af9efd622bee9a5564e278f6380fffcacc43ba6f43db2813b0"},
     {file = "py-1.8.1.tar.gz", hash = "sha256:5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa"},
 ]
+pydantic = [
+    {file = "pydantic-1.4-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:07911aab70f3bc52bb845ce1748569c5e70478ac977e106a150dd9d0465ebf04"},
+    {file = "pydantic-1.4-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:012c422859bac2e03ab3151ea6624fecf0e249486be7eb8c6ee69c91740c6752"},
+    {file = "pydantic-1.4-cp36-cp36m-manylinux2010_i686.whl", hash = "sha256:61d22d36808087d3184ed6ac0d91dd71c533b66addb02e4a9930e1e30833202f"},
+    {file = "pydantic-1.4-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:f863456d3d4bf817f2e5248553dee3974c5dc796f48e6ddb599383570f4215ac"},
+    {file = "pydantic-1.4-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:bbbed364376f4a0aebb9ea452ff7968b306499a9e74f4db69b28ff2cd4043a11"},
+    {file = "pydantic-1.4-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:e27559cedbd7f59d2375bfd6eea29a330ea1a5b0589c34d6b4e0d7bec6027bbf"},
+    {file = "pydantic-1.4-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:50e4e948892a6815649ad5a9a9379ad1e5f090f17842ac206535dfaed75c6f2f"},
+    {file = "pydantic-1.4-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:8848b4eb458469739126e4c1a202d723dd092e087f8dbe3104371335f87ba5df"},
+    {file = "pydantic-1.4-cp38-cp38-manylinux1_i686.whl", hash = "sha256:831a0265a9e3933b3d0f04d1a81bba543bafbe4119c183ff2771871db70524ab"},
+    {file = "pydantic-1.4-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:47b8db7024ba3d46c3d4768535e1cf87b6c8cf92ccd81e76f4e1cb8ee47688b3"},
+    {file = "pydantic-1.4-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:51f11c8bbf794a68086540da099aae4a9107447c7a9d63151edbb7d50110cf21"},
+    {file = "pydantic-1.4-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:6100d7862371115c40be55cc4b8d766a74b1d0dbaf99dbfe72bb4bac0faf89ed"},
+    {file = "pydantic-1.4-py36.py37.py38-none-any.whl", hash = "sha256:72184c1421103cca128300120f8f1185fb42a9ea73a1c9845b1c53db8c026a7d"},
+    {file = "pydantic-1.4.tar.gz", hash = "sha256:f17ec336e64d4583311249fb179528e9a2c27c8a2eaf590ec6ec2c6dece7cb3f"},
+]
 pyflakes = [
     {file = "pyflakes-2.1.1-py2.py3-none-any.whl", hash = "sha256:17dbeb2e3f4d772725c777fabc446d5634d1038f234e77343108ce445ea69ce0"},
     {file = "pyflakes-2.1.1.tar.gz", hash = "sha256:d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"},
+]
+pyhumps = [
+    {file = "pyhumps-1.3.1-py3-none-any.whl", hash = "sha256:32452d75ec3c9e44b845c3591fc54ab4734338fcf88a34d7cb1f42017faeffc3"},
+    {file = "pyhumps-1.3.1.tar.gz", hash = "sha256:71aaf4069eae682274dc7f33dfe24dff1f955bbcaa58f4d83d3853eb775116bc"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.6-py2.py3-none-any.whl", hash = "sha256:c342dccb5250c08d45fd6f8b4a559613ca603b57498511740e65cd11a2e7dcec"},

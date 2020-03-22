@@ -15,5 +15,5 @@ class FilmFactory(factory.django.DjangoModelFactory):
     imdb = factory.Sequence(lambda n: "https://example.com/film/%s" % n)
     title = factory.Sequence(lambda n: "Film #%s" % n)
     year = factory.fuzzy.FuzzyInteger(1980, 2020)
-    age_rating = factory.fuzzy.FuzzyChoice(_AGE_RATING_CHOICES)
+    imdb_age = factory.fuzzy.FuzzyChoice(_AGE_RATING_CHOICES)
     imdb_rating = factory.fuzzy.FuzzyFloat(1, 9)

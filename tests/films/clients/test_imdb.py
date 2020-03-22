@@ -21,6 +21,6 @@ def test_get_film():
         imdb=URL,
         title="Django Unchained",
         year=2012,
-        age_rating=types.AgeRating.AGE_18,
+        imdb_age=types.AgeRating.AGE_18,
         imdb_rating=8.4,
     )

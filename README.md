@@ -23,6 +23,9 @@ is dynamic HTML served by Django (no JavaScript is used).
 
 Pull requests are welcome :)
 
+TODO: Fix dependency on `bbfcapi` to be `bbfcapi[apis]` and remove direct
+dependency on `pyhumps`.
+
 ### Publishing
 
 This application is published on PyPi.
@@ -55,6 +58,7 @@ Some general tips:
 ### Unpublished
 
 - Fix error adding film when age rating on IMDB/OMDB is "N/A"
+- Add BBFC age ratings
 
 ### v1.2.3 - 2020-02-01
 

@@ -1,3 +1,6 @@
+import logging
+
+from bbfcapi.apis import top_search_result
 from django.conf import settings
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
@@ -5,7 +8,10 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 
 from films.clients import omdb
+from films.core import types
 from films.models import Film
+
+logger = logging.getLogger(__name__)
 
 
 class FilmCreate(CreateView):
@@ -15,9 +21,17 @@ class FilmCreate(CreateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         film = omdb.get_film(settings.OMDB_API_KEY, self.object.imdb)
+        try:
+            bbfc_age = top_search_result(film.title, film.year).age_rating
+            bbfc_age = types.AgeRating(bbfc_age.value)
+        except:
+            logger.exception("Failed to get BBFC age rating.")
+            bbfc_age = None
+
         self.object.title = film.title
         self.object.year = film.year
-        self.object.age_rating = film.age_rating.value if film.age_rating else None
+        self.object.imdb_age = film.imdb_age.value if film.imdb_age else None
+        self.object.bbfc_age = bbfc_age.value if bbfc_age else None
         self.object.imdb_rating = film.imdb_rating
         self.object.genre = film.genre
         self.object.runtime_mins = film.runtime_mins
@@ -48,7 +62,8 @@ class FilmUpdate(UpdateView):
     fields = [
         "imdb",
         "year",
-        "age_rating",
+        "imdb_age",
+        "bbfc_age",
         "imdb_rating",
         "genre",
         "runtime_mins",

@@ -20,7 +20,8 @@ class Film:
     title: str
     year: int
     imdb_rating: float
-    age_rating: Optional[AgeRating] = None
+    imdb_age: Optional[AgeRating] = None
+    bbfc_age: Optional[AgeRating] = None
     trailer: Optional[str] = None
     genre: Optional[str] = None
     runtime_mins: Optional[int] = None

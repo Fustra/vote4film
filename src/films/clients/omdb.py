@@ -40,7 +40,7 @@ def get_film(api_key, url: str) -> types.Film:
         title=title,
         year=year,
         imdb_rating=imdb_rating,
-        age_rating=age_rating,
+        imdb_age=age_rating,
         genre=genre,
         runtime_mins=runtime_mins,
         plot=plot,
