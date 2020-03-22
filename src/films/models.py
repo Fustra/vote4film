@@ -34,12 +34,14 @@ class Film(models.Model):
     imdb_age = models.CharField(
         verbose_name="IMDB Age Rating",
         null=True,
+        blank=True,
         max_length=3,
         choices=AGE_RATING_CHOICES,
     )
     bbfc_age = models.CharField(
         verbose_name="BBFC Age Rating",
         null=True,
+        blank=True,
         max_length=3,
         choices=AGE_RATING_CHOICES,
     )
