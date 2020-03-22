@@ -15,8 +15,8 @@ is dynamic HTML served by Django (no JavaScript is used).
 ## Development
 
 1. `poetry install` to set-up the virtualenv (one-off)
-2. `poetry run ./src/vote4film/manage.py migrate` to set-up the local DB (one-off)
-3. `poetry run ./src/vote4film/manage.py runserver_plus`
+2. `poetry run ./src/manage.py migrate` to set-up the local DB (one-off)
+3. `poetry run ./src/manage.py runserver_plus`
 4. `make fix`, `make check` and `make test` before committing
 
 ### Contributing
