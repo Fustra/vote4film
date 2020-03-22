@@ -10,32 +10,32 @@
     <p>No upcoming event.</p>
   {% endif %}
 
-  {% if has_registered %}
+  {% if has_registered and has_fully_voted %}
     {% if film %}
       {% include "votes/includes/film_card.html" with film=film only %}
     {% else %}
       <p>No upcoming film.
     {% endif %}
-
-    <h2>Register</h2>
-    <ol>
-      {% for user in present_users %}
-        <li>✓ {{ user.username }}
-      {% endfor %}
-    </ol>
-    <ol>
-      {% for user in absent_users %}
-        <li>✗ {{ user.username }}
-      {% endfor %}
-    </ol>
-    <ol>
-      {% for user in unknown_users %}
-        <li>? {{ user.username }}
-      {% endfor %}
-    </ol>
-  {% elif event %}
+  {% elif event and not has_registered %}
     <p>
       You must <a href="{{ next_event_register_url }}">update the calender</a>
       in order to see the what the upcoming film <em>might be</em>.
+  {% elif not has_fully_voted %}
+    <p>
+      You must <a href="{% url 'votes:vote-create' %}">vote for all films</a>
+      in order to see the what the upcoming film <em>might be</em>.
   {% endif %}
+
+  <h2>Register</h2>
+  <ol>
+    {% for user in present_users %}
+      <li>🗹 {{ user.username }}
+    {% endfor %}
+    {% for user in absent_users %}
+      <li>🗷 {{ user.username }}
+    {% endfor %}
+    {% for user in unknown_users %}
+      <li>☐ {{ user.username }}
+    {% endfor %}
+  </ol>
 {% endblock %}
