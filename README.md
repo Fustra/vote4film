@@ -57,6 +57,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.3.0 - 2020-03-22
+
 - Fix error adding film when age rating on IMDB/OMDB is "N/A"
 - Add BBFC age ratings
 
