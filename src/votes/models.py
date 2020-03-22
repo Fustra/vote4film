@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 
 class Vote(models.Model):
@@ -20,6 +21,9 @@ class Vote(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     film = models.ForeignKey("films.Film", on_delete=models.CASCADE)
     choice = models.IntegerField(choices=VOTE_CHOICES)
+
+    def get_absolute_url(self):
+        return reverse("votes:vote-update", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"Vote by {self.user} of {self.choice} for {self.film}"

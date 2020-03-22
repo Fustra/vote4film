@@ -60,6 +60,7 @@ Some general tips:
 - Add "change your vote"
 - Redirect the user to the schedule after registering for the event
 - Hide upcoming film until the user has voted for all films
+- Add actually usable admin interface
 - Add optional Sentry integration
 
 ### v1.3.0 - 2020-03-22

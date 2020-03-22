@@ -1,5 +1,3 @@
-from django.urls import reverse
-
 from calender.models import Register
 
 
@@ -14,8 +12,6 @@ def next_event_register_url(request):
         }
 
     return {
-        "next_event_register_url": reverse(
-            "calender:register-update", args=(register.pk,)
-        ),
+        "next_event_register_url": register.get_absolute_url(),
         "next_event_registered": register.is_registered,
     }

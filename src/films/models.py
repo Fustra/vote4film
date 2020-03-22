@@ -31,14 +31,26 @@ class Film(models.Model):
     imdb = models.URLField(verbose_name="IMDB Link")
     title = models.CharField(max_length=255)
     year = models.PositiveIntegerField(verbose_name="Year of Release")
-    imdb_age = models.CharField(null=True, max_length=3, choices=AGE_RATING_CHOICES)
-    bbfc_age = models.CharField(null=True, max_length=3, choices=AGE_RATING_CHOICES)
-    imdb_rating = models.FloatField()
+    imdb_age = models.CharField(
+        verbose_name="IMDB Age Rating",
+        null=True,
+        max_length=3,
+        choices=AGE_RATING_CHOICES,
+    )
+    bbfc_age = models.CharField(
+        verbose_name="BBFC Age Rating",
+        null=True,
+        max_length=3,
+        choices=AGE_RATING_CHOICES,
+    )
+    imdb_rating = models.FloatField(verbose_name="IMDB Rating")
     trailer = models.URLField(verbose_name="Trailer Link", null=True, blank=True)
     genre = models.CharField(null=True, blank=True, max_length=255)
-    runtime_mins = models.PositiveIntegerField(null=True, blank=True)
+    runtime_mins = models.PositiveIntegerField(
+        verbose_name="Runtime (minutes)", null=True, blank=True
+    )
     plot = models.TextField(null=True, blank=True)
-    poster_url = models.URLField(null=True, blank=True)
+    poster_url = models.URLField(verbose_name="Poster URL", null=True, blank=True)
     is_available = models.BooleanField(verbose_name="Do we have it?", default=False)
     is_watched = models.BooleanField(verbose_name="Have we watched it?", default=False)
 

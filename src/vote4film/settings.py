@@ -233,7 +233,6 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 
 
 # Other
-DEBUG_TOOLBAR_CONFIG = {"INSERT_BEFORE": "<!-- DEBUG TOOLBAR -->"}
 OMDB_API_KEY = env("OMDB_API_KEY")
 if env("SENTRY_DSN"):
     import sentry_sdk

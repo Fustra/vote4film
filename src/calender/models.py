@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 
 class EventQuerySet(models.QuerySet):
@@ -65,6 +66,9 @@ class Register(models.Model):
     @property
     def is_registered(self):
         return self.is_present is not None
+
+    def get_absolute_url(self):
+        return reverse("calender:register-update", kwargs={"pk": self.pk})
 
     def __str__(self):
         mapping = {
