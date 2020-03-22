@@ -57,7 +57,11 @@ Some general tips:
 
 ### Unpublished
 
-- Add "change your vote"
+...
+
+### v1.4.0 - 2020-03-22
+
+- Allow users to change their vote
 - Redirect the user to the schedule after registering for the event
 - Hide upcoming film until the user has voted for all films
 - Add actually usable admin interface
