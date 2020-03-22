@@ -58,6 +58,7 @@ Some general tips:
 ### Unpublished
 
 - Add "change your vote"
+- Redirect the user to the schedule after registering for the event
 - Add optional Sentry integration
 
 ### v1.3.0 - 2020-03-22

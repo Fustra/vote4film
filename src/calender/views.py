@@ -8,7 +8,7 @@ from calender.models import Register
 class RegisterUpdate(UpdateView):
     model = Register
     form_class = RegisterUpdateForm
-    success_url = reverse_lazy("web:home")
+    success_url = reverse_lazy("schedule:schedule")
 
     def get_initial(self):
         initial = super().get_initial()
