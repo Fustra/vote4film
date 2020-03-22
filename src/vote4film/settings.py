@@ -9,16 +9,18 @@ https://docs.djangoproject.com/en/latest/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/latest/ref/settings/
 """
-
 import sys
 
 import environ
 from django.core.exceptions import ImproperlyConfigured
 from xdg import XDG_CONFIG_HOME
 
+from vote4film import __version__
+
 settings_path = environ.Path(__file__) - 1
 django_app = settings_path - 1
 repo_root = django_app - 1
+
 
 # Great setup for local developers, just need to enable DEBUG in local.env
 env = environ.Env(
@@ -239,5 +241,10 @@ if env("SENTRY_DSN"):
     from sentry_sdk.integrations.django import DjangoIntegration
 
     sentry_sdk.init(
-        dsn=env("SENTRY_DSN"), integrations=[DjangoIntegration()], send_default_pii=True
+        dsn=env("SENTRY_DSN"),
+        integrations=[DjangoIntegration()],
+        send_default_pii=True,
+        traces_sample_rate=1,
+        _experiments={"auto_enabling_integrations": True},
+        release=f"vote4film@{__version__}",
     )

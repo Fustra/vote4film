@@ -33,6 +33,7 @@ This application is published on PyPi.
 1. Ensure you have configured the PyPi repository with Poetry (one-off)
 2. Add the release notes in this README.md
 3. `poetry version minor` to bump the major/minor/patch version
+4. Also bump version in `vote4film/__init__.py`
 4. `poetry publish --build` to release
 
 To publish to the test repository:
@@ -57,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Enable additional Sentry features including tracing
 
 ### v1.4.0 - 2020-03-22
 
