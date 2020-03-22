@@ -31,4 +31,7 @@ urlpatterns = [
 if settings.DEBUG:
     import debug_toolbar
 
-    urlpatterns += [path("__debug__/", include(debug_toolbar.urls))]
+    urlpatterns += [
+        path("sentry-debug/", lambda r: 1 / 0),
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]

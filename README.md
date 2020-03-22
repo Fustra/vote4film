@@ -57,7 +57,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Add optional Sentry integration
 
 ### v1.3.0 - 2020-03-22
 
