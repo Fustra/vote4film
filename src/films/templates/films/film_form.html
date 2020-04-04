@@ -3,25 +3,18 @@
 
 
 {% block secondary_nav %}
-  {% with u=request.resolver_match.view_name %}
-    {% if is_vote_available %}
-      <a tabindex="5"
-         class="nav__item nav__item--secondary {% if u == 'films:film-create' or u == 'films:film-update' %}nav__item--selected{% endif %}"
-         href="
-          {% if object %}
-            {% url 'films:film-update' object.pk %}
-          {% else %}
-            {% url 'films:film-create' %}
-          {% endif %}
-          ">
-        {% if object %}
-          Update Film
-        {% else %}
-          Add Film
-        {% endif %}
-      </a>
-    {% endif %}
-  {% endwith %}
+  <a tabindex="5"
+     class="nav__item nav__item--secondary {% if not object %} nav__item--selected{% endif %}"
+     href="{% url 'films:film-create' %}">
+    Add Film
+  </a>
+  {% if object %}
+    <a tabindex="6"
+       class="nav__item nav__item--secondary nav__item--selected"
+       href="{% url 'films:film-update' object.pk %}">
+      Update Film
+    </a>
+  {% endif %}
 {% endblock secondary_nav %}
 
 

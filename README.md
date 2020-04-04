@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- Add "update film" link when editing a film
 - Miscellaneous UI tweaks
 
 ### v1.5.2 - 2020-04-04
