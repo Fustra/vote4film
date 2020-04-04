@@ -48,8 +48,6 @@ class FilmCreate(SuccessMessageMixin, CreateView):
             self.object = Film.objects.get(title=film.title, year=film.year)
             return HttpResponseRedirect(self.get_success_url())
 
-            raise
-
     def get_success_url(self):
         if "_save" in self.request.POST:
             return reverse("votes:vote-create")
@@ -77,3 +75,11 @@ class FilmUpdate(SuccessMessageMixin, UpdateView):
         "is_watched",
     ]
     success_message = "You have updated the film %(title)s."
+
+    def get_success_url(self):
+        if "_save" in self.request.POST:
+            return reverse("votes:vote-aggregate")
+        elif "_edit" in self.request.POST:
+            return super().get_success_url()
+        elif "_addanother" in self.request.POST:
+            return reverse("films:film-create")
