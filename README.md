@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Miscellaneous UI tweaks
 
 ### v1.5.2 - 2020-04-04
 

@@ -20,12 +20,19 @@
 
 
 {% block content %}
-  <h1>Films</h1>
+  <h1>Films to Watch</h1>
   <p>
     There are <strong>{{ num_to_watch|apnumber }} films to watch</strong>,
     ordered from <strong>the most to the least popular</strong> based on everyone's votes.
   {% if object_list %}
+    <h1 class="item-seperator">Most Popular</h1>
     {% for film in films %}
+      {% if forloop.counter0 == 1 %}
+        <h1 class="item-seperator">Less Popular</h1>
+      {% endif %}
+      {% if forloop.counter0 > 1 and forloop.revcounter0 == 0 %}
+        <h1 class="item-seperator">Least Popular</h1>
+      {% endif %}
       {% include "votes/includes/film_card.html" with film=film only %}
     {% empty %}
       <p>There are no films left to watch :(
