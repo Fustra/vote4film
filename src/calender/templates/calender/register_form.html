@@ -3,10 +3,11 @@
 
 
 {% block content %}
-  <form method="post">
+  <form class="form--one-line" method="post">
+    <h2>The next event is {{ event.date|naturalday|capfirst }}</h2>
+    <h3>Will you be there?</h3>
     {% csrf_token %}
-    <h2>{{ event.date|naturalday|capfirst }}</h2>
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    <input class="button" type="submit" value="Update">
   </form>
 {% endblock content %}

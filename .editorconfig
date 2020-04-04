@@ -21,5 +21,9 @@ max_line_length = 88
 indent_style = space
 indent_size = 2
 
+[*.css]
+indent_style = space
+indent_size = 4
+
 [Makefile]
 indent_style = tab

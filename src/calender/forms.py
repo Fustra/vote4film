@@ -8,4 +8,18 @@ class RegisterUpdateForm(forms.ModelForm):
         model = Register
         fields = ["user", "event", "is_present"]
         widgets = {"user": forms.HiddenInput, "event": forms.HiddenInput}
-        labels = {"is_present": "I will be there"}
+        labels = {"is_present": False}
+
+        # TODO: Individual buttons
+        # forms.widgets.RadioSelect(
+        #         choices=[(1, "Yes"), (0, "No"), (2, "Don't Know")]
+        #     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        new_choices = (
+            (2, "I will be there"),
+            (3, "I will not be there"),
+            (1, "I don't know yet"),
+        )
+        self.fields["is_present"].widget.choices = new_choices

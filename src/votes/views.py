@@ -71,11 +71,21 @@ class VoteCreate(CreateView):
 
 class VoteUpdate(UpdateView):
     model = Vote
-    fields = ["choice"]
-    template_name = "votes/vote_update_form.html"
+    form_class = VoteForm
 
     def get_queryset(self):
-        return super().get_queryset().filter(user=self.request.user)
+        return (
+            super()
+            .get_queryset()
+            .filter(user=self.request.user)  # Security
+            .select_related("film")  # Performance
+        )
+
+    def get_context_data(self, **kwargs):
+        # Provide easier access to film in the template
+        context = super().get_context_data(**kwargs)
+        context["film"] = context["form"].instance.film
+        return context
 
 
 class VoteAggregate(ListView):

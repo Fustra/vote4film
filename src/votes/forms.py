@@ -9,10 +9,5 @@ class VoteForm(forms.ModelForm):
     class Meta:
         model = Vote
         fields = ["user", "film", "choice"]
-        widgets = {
-            "user": forms.HiddenInput,
-            "film": forms.HiddenInput,
-        }
-        labels = {
-            "choice": "My vote",
-        }
+        widgets = {"user": forms.HiddenInput, "film": forms.HiddenInput}
+        labels = {"choice": False}

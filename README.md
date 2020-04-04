@@ -59,6 +59,7 @@ Some general tips:
 ### Unpublished
 
 - Enable additional Sentry features including tracing
+- Overhaul user interface
 
 ### v1.4.0 - 2020-03-22
 

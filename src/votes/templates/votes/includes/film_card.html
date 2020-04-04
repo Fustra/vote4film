@@ -10,90 +10,6 @@ Takes in:
 
 {% load films_extras %}
 
-<style>
-  .films-card {
-    margin-bottom: 1em;
-    min-height: 10.37em;
-    display: block;
-    clear: left;
-    box-shadow: -3px 3px 6px 3px rgba(0, 0, 0, 0.25);
-  }
-  .films-card--unavailable {
-    {% if not is_voting %}
-    background-color: lightcoral;
-    {% endif %}
-  }
-  .films-card--watched {
-    background-color: silver;
-  }
-  .films-img {
-    max-width: 7em;
-    float: left;
-    margin-right: 0.75em;
-  }
-  .films-content {
-    padding-top: 0.5em;
-    padding-right: 0.25em;
-    padding-bottom: 0;
-  }
-  .films-title {
-    margin: 0em;
-    margin-top: 0.5em;
-    display: inline;
-  }
-  .films-tags {
-    display: inline;
-  }
-  .film-tags-group {
-    display: inline-block;
-  }
-  .films-tag {
-    display: inline-block;
-  }
-  .films-tag__year {
-    font-size: small;
-  }
-  .films-icon {
-    max-height: 1.1875em;
-    vertical-align: text-bottom;
-  }
-  .films-icon__youtube {
-    height: 1.25em;
-    max-height: 1.25em;
-    vertical-align: text-bottom;
-  }
-  .films-tag a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .films-great {
-    background-color: rgb(63, 191, 127, 0.4);
-  }
-  .films-good {
-    background-color: rgb(127, 191, 63, 0.4);
-  }
-  .films-meh {
-    background-color: rgb(191, 127, 63, 0.4);
-  }
-  .films-bad {
-    background-color: rgb(191, 63, 0, 0.4);
-  }
-
-  .votes-upup {
-    background-color: rgb(63, 191, 127, 0.4);
-  }
-  .votes-up {
-    background-color: rgb(127, 191, 63, 0.4);
-  }
-  .votes-down {
-    background-color: rgb(191, 127, 63, 0.4);
-  }
-  .votes-downdown {
-    background-color: rgb(191, 63, 0, 0.4);
-  }
-</style>
-
 <section class="films-card
   {% if not film.is_available %}
     films-card--unavailable
@@ -109,7 +25,7 @@ Takes in:
     <h2 class="films-title">
       {{ film.title }}
       {% if film.is_watched %}
-        <span title="Already watched">👀</span>
+        <span title="We've already watched this film">👀</span>
       {% endif %}
     </h2>
 
@@ -121,7 +37,7 @@ Takes in:
       <div class="film-tags-group">
         <div class="films-tag">
           <a href="{{ film.bbfc_search }}">
-            <img title="IMDB age rating - may not be accurate!" class="films-icon" src="
+            <img title="Find out more about the age rating on BBFC" class="films-icon" src="
               {% if film.age_rating == "U" %}
                 https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
               {% elif film.age_rating == "PG" %}
@@ -140,7 +56,7 @@ Takes in:
         </div>
         <div class="films-tag">
           ·
-          <a title="View film information on IMDB" href="{{ film.imdb }}">
+          <a title="Read more about the film on IMDB" href="{{ film.imdb }}">
             <img class="films-icon"
               src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
             />&thinsp;<span class="
@@ -159,7 +75,7 @@ Takes in:
         </div>
         <div class="films-tag">
           ·
-          <a title="Search YouTube" href="{{ film.youtube_search }}">
+          <a title="Watch the film's trailer on YouTube" href="{{ film.youtube_search }}">
             <img class="films-icon films-icon__youtube" src="https://youtube.com/favicon.ico" />
           </a>
         </div>
