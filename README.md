@@ -58,8 +58,12 @@ Some general tips:
 
 ### Unpublished
 
-- Enable additional Sentry features including tracing
+...
+
+### v1.5.0 - 2020-04-04
+
 - Overhaul user interface
+- Enable additional Sentry features including tracing
 
 ### v1.4.0 - 2020-03-22
 
