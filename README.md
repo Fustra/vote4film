@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix link to calender when there is no upcoming event
 
 ### v1.5.1 - 2020-04-04
 

@@ -31,7 +31,12 @@ Takes in:
       </a>
       <a tabindex="2"
          class="nav__item {% if u == 'calender:register-update' %}nav__item--selected{% endif %}"
-         href="{{ next_event_register_url }}">
+         {# TODO: Implement calender page to remove this temporary redirect #}
+         {% if next_event_register_url %}
+          href="{{ next_event_register_url }}">
+         {% else %}
+          href="{% url 'schedule:schedule' %}">
+         {% endif %}
         Calender
       </a>
       <a tabindex="3"

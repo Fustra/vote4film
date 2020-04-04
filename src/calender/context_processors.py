@@ -8,6 +8,7 @@ def next_event_register_url(request):
     register = Register.objects.next_event_register(request.user)
     if not register:
         return {
+            "next_event_register_url": None,
             "next_event_registered": False,
         }
 
