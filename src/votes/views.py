@@ -1,8 +1,9 @@
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, Prefetch, Q, Sum, Value
 from django.db.models.functions import Coalesce
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 
@@ -16,9 +17,10 @@ class NoMoreFilms(Exception):
     pass
 
 
-class VoteCreate(CreateView):
+class VoteCreate(SuccessMessageMixin, CreateView):
     model = Vote
     form_class = VoteForm
+    success_message = "You have voted for %(film)s."
 
     def get(self, request, *args, **kwargs):
         try:
@@ -69,9 +71,11 @@ class VoteCreate(CreateView):
             return reverse("schedule:schedule")
 
 
-class VoteUpdate(UpdateView):
+class VoteUpdate(SuccessMessageMixin, UpdateView):
     model = Vote
     form_class = VoteForm
+    success_url = reverse_lazy("votes:vote-aggregate")
+    success_message = "Your vote for %(film)s was updated."
 
     def get_queryset(self):
         return (

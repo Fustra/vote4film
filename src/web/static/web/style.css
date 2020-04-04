@@ -352,9 +352,7 @@ main {
 }
 
 .films-card--unavailable {
-    {% if not is_voting %}
     background-color: lightcoral;
-    {% endif %}
 }
 
 .films-card--watched {

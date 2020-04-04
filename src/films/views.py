@@ -2,6 +2,7 @@ import logging
 
 from bbfcapi.apis import top_search_result
 from django.conf import settings
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -14,9 +15,10 @@ from films.models import Film
 logger = logging.getLogger(__name__)
 
 
-class FilmCreate(CreateView):
+class FilmCreate(SuccessMessageMixin, CreateView):
     model = Film
     fields = ["imdb", "is_available"]
+    success_message = "You have added a new film."
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -57,9 +59,10 @@ class FilmCreate(CreateView):
             return reverse("films:film-create")
 
 
-class FilmUpdate(UpdateView):
+class FilmUpdate(SuccessMessageMixin, UpdateView):
     model = Film
     fields = [
+        "title",
         "imdb",
         "year",
         "imdb_age",
@@ -73,3 +76,4 @@ class FilmUpdate(UpdateView):
         "is_available",
         "is_watched",
     ]
+    success_message = "You have updated the film %(title)s."

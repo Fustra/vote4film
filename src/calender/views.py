@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic.edit import UpdateView
 
@@ -5,10 +6,11 @@ from calender.forms import RegisterUpdateForm
 from calender.models import Register
 
 
-class RegisterUpdate(UpdateView):
+class RegisterUpdate(SuccessMessageMixin, UpdateView):
     model = Register
     form_class = RegisterUpdateForm
     success_url = reverse_lazy("schedule:schedule")
+    success_message = "You have updated the calender."
 
     def get_initial(self):
         initial = super().get_initial()
