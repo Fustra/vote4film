@@ -76,7 +76,7 @@ class Film(models.Model):
         return reverse("films:film-update", kwargs={"pk": self.pk})
 
     def __str__(self):
-        return f"{self.title} ({self.year}) [{self.age_rating}]"
+        return f"{self.title} ({self.year})"
 
     def __repr__(self):
         return f"<Film(pk={self.pk})>"
