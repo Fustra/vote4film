@@ -64,10 +64,15 @@
       {% endfor %}
     </ol>
   {% else %}
-    <p>There is no upcoming event in the calender.
-    <p>(I need to add the ability for you create an event!)
+    <p>
+      There is no upcoming event in the calender.
+      <em>(I need to give you the ability to add an event!)</em>
     {% if is_vote_available %}
       <p>You can still <a href="{% url 'votes:vote-create' %}">vote for films.</a>
+    {% else %}
+      <p>
+        You have voted for <a href="{% url 'votes:vote-aggregate' %}">all the films</a>;
+        there is nothing for you to do right now.
     {% endif %}
   {% endif %}
 {% endblock %}
