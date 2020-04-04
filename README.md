@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.1 - 2020-04-04
+
 - Fix call-to-action flow for the upcoming page
 
 ### v1.5.0 - 2020-04-04
