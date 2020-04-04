@@ -23,7 +23,7 @@
   <h1>Films</h1>
   <p>
     There are <strong>{{ num_to_watch|apnumber }} films to watch</strong>,
-    ordered from <strong>most to least popular</strong> based on everyone's votes.
+    ordered from <strong>the most to the least popular</strong> based on everyone's votes.
   {% if object_list %}
     {% for film in films %}
       {% include "votes/includes/film_card.html" with film=film only %}
