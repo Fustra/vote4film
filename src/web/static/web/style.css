@@ -31,6 +31,7 @@ TODO:
     --colour-form-button-background-hover-secondary: #DBDAD9;
     --colour-form-button-text: white;
     --colour-form-button-text-secondary: black;
+    --colour-subtle-text: #ccc;
 }
 
 /* Highlight all focused elements
@@ -340,6 +341,17 @@ main {
     }
 }
 
+.item-seperator {
+    margin-bottom: 0;
+    letter-spacing: -0.1em;
+    word-spacing: 125%;
+    font-family: serif;
+    font-weight: bold;
+    font-size: min(5em, 12vw);
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--colour-subtle-text);
+}
 
 /* === FILM CARD === */
 

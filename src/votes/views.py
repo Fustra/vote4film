@@ -119,7 +119,9 @@ class VoteAggregate(ListView):
     def get_context_data(self, **kwargs):
         # Provide easier access to film in the template
         context = super().get_context_data(**kwargs)
-        context["num_to_watch"] = len(
-            [film for film in self.object_list if not film.is_watched]
-        )
+        context["films"] = [film for film in self.object_list if not film.is_watched]
+        context["watched_films"] = [
+            film for film in self.object_list if film.is_watched
+        ]
+        context["num_to_watch"] = len(context["films"])
         return context
