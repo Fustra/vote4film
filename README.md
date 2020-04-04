@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix call-to-action flow for the upcoming page
 
 ### v1.5.0 - 2020-04-04
 
