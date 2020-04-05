@@ -87,7 +87,7 @@ select:focus {
     box-shadow: inset 0 0 0 1px var(--box-shadow-color);
 }
 
-select:invalid, input:invalid {
+select:invalid, input:invalid:not(:focus) {
     --box-shadow-color: var(--colour-form-button-outline-highlight);
     border-color: var(--colour-form-button-outline-highlight);
 }
@@ -252,19 +252,19 @@ a.nav__item {
     /*-webkit-tap-highlight-color: var(--colour-focused-background);*/
 }
 
-a.nav__item--selected:not(focus) {
+a.nav__item--selected:not(:focus) {
     background-color: var(--colour-item-background-selected);
     color: var(--colour-item-text-selected);
 }
 
 @media (hover: hover) {
-    a.nav__item:not(.nav__item--selected):not(focus):hover {
+    a.nav__item:not(.nav__item--selected):not(:focus):hover {
         background-color: var(--colour-item-background-hover);
     }
     a.nav__item:not(.nav__item--selected):focus:hover {
         background-color: var(--colour-item-background-focus-hover);
     }
-    a.nav__item:not(focus):hover {
+    a.nav__item:not(:focus):hover {
         background-color: var(--colour-item-background-selected-hover);
     }
     a.nav__item:focus:hover {
