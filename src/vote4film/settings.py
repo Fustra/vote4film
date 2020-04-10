@@ -33,6 +33,7 @@ env = environ.Env(
     DATABASE=(str, "sqlite:///" + repo_root("db.sqlite3")),
     OMDB_API_KEY=(str, ""),  # REQUIRED if omdb is used
     SENTRY_DSN=(str, ""),  # REQUIRED if sentry is used
+    SENTRY_TRACE_RATE=(float, 0.01),
 )
 
 
@@ -244,7 +245,7 @@ if env("SENTRY_DSN"):
         dsn=env("SENTRY_DSN"),
         integrations=[DjangoIntegration()],
         send_default_pii=True,
-        traces_sample_rate=1,
+        traces_sample_rate=env("SENTRY_TRACE_RATE"),
         _experiments={"auto_enabling_integrations": True},
         release=f"vote4film@{__version__}",
     )
