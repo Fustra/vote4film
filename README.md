@@ -61,6 +61,7 @@ Some general tips:
 - Add "update film" link when editing a film
 - Add redirects after editing a film
 - Miscellaneous UI tweaks
+- Add support for "G" age rating on IMDB
 - Add option for Sentry's trace sample rate
 
 ### v1.5.2 - 2020-04-04

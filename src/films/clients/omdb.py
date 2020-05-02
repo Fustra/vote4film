@@ -23,6 +23,7 @@ def get_film(api_key, url: str) -> types.Film:
     else:
         age_rating = types.AgeRating(
             json["Rated"]
+            .replace("G", "U")
             .replace("PG-13", "12")
             .replace("TV-MA", "18")  # Compromise between 15 and 18
             .replace("R", "18")
