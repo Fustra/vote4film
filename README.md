@@ -62,6 +62,7 @@ Some general tips:
 - Add redirects after editing a film
 - Miscellaneous UI tweaks
 - Add support for "G" age rating on IMDB
+- Fix initial choice on the calender not matching the user's previous choice
 - Add option for Sentry's trace sample rate
 
 ### v1.5.2 - 2020-04-04

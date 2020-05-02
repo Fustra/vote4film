@@ -18,8 +18,8 @@ class RegisterUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         new_choices = (
-            (2, "I will be there"),
-            (3, "I will not be there"),
-            (1, "I don't know yet"),
+            ("true", "I will be there"),
+            ("false", "I will not be there"),
+            ("unknown", "I don't know yet"),
         )
         self.fields["is_present"].widget.choices = new_choices
