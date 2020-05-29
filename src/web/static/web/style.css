@@ -64,7 +64,9 @@ html {
 
 /* Show "external link icon" after links that take you off the website */
 a[target='_blank']::after {
-    content: ' \1F5D7';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: ' \F35D';
 }
 
 

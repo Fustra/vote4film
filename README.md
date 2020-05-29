@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+- Fix missing icons on upcoming and add film pages (use fontawesome)
+
+### v1.5.3 - 2020-05-02
+
 - Add "update film" link when editing a film
 - Add redirects after editing a film
 - Miscellaneous UI tweaks

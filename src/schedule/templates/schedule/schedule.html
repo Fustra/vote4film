@@ -54,13 +54,13 @@
     <h2>Register</h2>
     <ol>
       {% for user in present_users %}
-        <li>🗹 {{ user.username }}
+        <li><i class="far fa-check-circle"></i> {{ user.username }}
       {% endfor %}
       {% for user in absent_users %}
-        <li>🗷 {{ user.username }}
+        <li><i class="far fa-times-circle"></i> {{ user.username }}
       {% endfor %}
       {% for user in unknown_users %}
-        <li>☐ {{ user.username }}
+        <li><i class="far fa-question-circle"></i> {{ user.username }}
       {% endfor %}
     </ol>
   {% else %}
