@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.4 - 2020-05-29
+
 - Fix missing icons on upcoming and add film pages (use fontawesome)
 
 ### v1.5.3 - 2020-05-02
