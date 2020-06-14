@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Add website favicon
 
 ### v1.5.4 - 2020-05-29
 
