@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+import pytest
 import responses
 
 from films.clients import omdb
@@ -33,3 +34,19 @@ def test_get_film():
         ),
         poster_url="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg",
     )
+
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        ("Not Rated", None),
+        ("N/A", None),
+        ("G", types.AgeRating.UNIVERSAL),
+        ("PG", types.AgeRating.PARENTAL_GUIDANCE),
+        ("PG-13", types.AgeRating.AGE_12),
+        ("TV-MA", types.AgeRating.AGE_18),
+        ("R", types.AgeRating.AGE_18),
+    ],
+)
+def test_age_rating(input, expected):
+    assert omdb._age_rating(input) == expected

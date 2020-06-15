@@ -3,6 +3,14 @@ import requests
 from films.core import types
 
 
+RATING_REPLACEMENTS = {
+    "G": "U",
+    "PG-13": "12",
+    "TV-MA": "18",  # Compromise between 15 and 18
+    "R": "18",
+}
+
+
 def get_film(api_key, url: str) -> types.Film:
     url = normalise_url(url)
     if not url.startswith("https://www.imdb.com/title/"):
@@ -17,17 +25,7 @@ def get_film(api_key, url: str) -> types.Film:
     title = json["Title"]
     year = int(json["Year"])
 
-    if json["Rated"].lower() in ("not rated", "n/a"):
-        # TODO: Retrieve age rating from BBFC
-        age_rating = None
-    else:
-        age_rating = types.AgeRating(
-            json["Rated"]
-            .replace("G", "U")
-            .replace("PG-13", "12")
-            .replace("TV-MA", "18")  # Compromise between 15 and 18
-            .replace("R", "18")
-        )
+    age_rating = _age_rating(json["Rated"])
     imdb_rating = float(json["imdbRating"])
     genre = json["Genre"]
     runtime_mins = None
@@ -54,3 +52,14 @@ def normalise_url(url):
         url = url[len("https://m.imdb.com") :]
         url = "https://www.imdb.com" + url
     return url
+
+
+def _age_rating(rating: str) -> types.AgeRating:
+    if rating.lower() in ("not rated", "n/a"):
+        return None
+
+    for original, replacement in RATING_REPLACEMENTS.items():
+        if rating == original:
+            return types.AgeRating(replacement)
+
+    return types.AgeRating(rating)
