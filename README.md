@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- [SECURITY] Fix security vulnerability in underlying dependencies
 - Add website favicon
 
 ### v1.5.4 - 2020-05-29
