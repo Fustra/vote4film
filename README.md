@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.5 - 2020-06-20
+
 - [SECURITY] Fix security vulnerability in underlying dependencies
 - Add website favicon
 - Fix parsing "PG" age rating
