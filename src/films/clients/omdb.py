@@ -2,7 +2,6 @@ import requests
 
 from films.core import types
 
-
 RATING_REPLACEMENTS = {
     "G": "U",
     "PG-13": "12",
@@ -26,7 +25,7 @@ def get_film(api_key, url: str) -> types.Film:
     year = int(json["Year"])
 
     age_rating = _age_rating(json["Rated"])
-    imdb_rating = float(json["imdbRating"])
+    imdb_rating = _imdb_rating(json["imdbRating"])
     genre = json["Genre"]
     runtime_mins = None
     if "min" in json["Runtime"]:
@@ -63,3 +62,10 @@ def _age_rating(rating: str) -> types.AgeRating:
             return types.AgeRating(replacement)
 
     return types.AgeRating(rating)
+
+
+def _imdb_rating(rating: str):
+    if rating == "N/A":
+        return None
+
+    return float(rating)
