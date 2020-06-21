@@ -1,14 +1,22 @@
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+SHELL := bash
+.SHELLFLAGS := -euo pipefail -c
+.DEFAULT_GOAL := help
+.DELETE_ON_ERROR:
+
 COLOR_BLUE = \033[0;94m
 COLOR_GREEN = \033[0;32m
 NO_COLOR   = \033[m
 
+
 ## help:	This.
 .PHONY: help
-.DEFAULT: help
 help: Makefile
 #	Find all double comments and treat them as docstrings
 	@echo "make <command>"
 	@sed -n 's/^##//p' $<
+
 
 ## check:	Run basic checks.
 .PHONY: check
@@ -55,3 +63,8 @@ fix:
 test:
 	@echo -e "${COLOR_BLUE}=== Pytest ===\n${NO_COLOR}"
 	@poetry run pytest tests
+
+
+##
+##Run make with VERBOSE=1 for additional output.
+$(VERBOSE).SILENT:
