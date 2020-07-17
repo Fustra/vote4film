@@ -5,6 +5,7 @@ from films import models
 
 @admin.register(models.Film)
 class RegisterAdmin(admin.ModelAdmin):
+    search_fields = ("title",)
     list_display = (
         "title",
         "year",

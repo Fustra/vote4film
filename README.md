@@ -59,6 +59,7 @@ Some general tips:
 ### Unpublished
 
 - Fix parsing omdb film rating when it is missing
+- Add search to the admin page for films
 
 ### v1.5.5 - 2020-06-20
 
