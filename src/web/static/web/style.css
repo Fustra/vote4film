@@ -374,7 +374,7 @@ main {
 }
 
 .films-img {
-    max-width: 7em;
+    max-width: 112px;  /* 7em */
     float: left;
     margin-right: 0.75em;
 }
@@ -408,13 +408,6 @@ main {
 }
 
 .films-icon {
-    max-height: 1.1875em;
-    vertical-align: text-bottom;
-}
-
-.films-icon__youtube {
-    height: 1.25em;
-    max-height: 1.25em;
     vertical-align: text-bottom;
 }
 

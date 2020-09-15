@@ -19,7 +19,12 @@ Takes in:
   {% endif %}
 ">
   <a href="{{ film.poster_url }}">
-    <img class="films-img" src="{{ film.poster_url }}" />
+    <img
+      class="films-img"
+      src="{{ film.poster_url }}"
+      {# Use average height while loading - cards vary in height #}
+      width="112" height="166"
+    />
   </a>
   <section class="films-content">
     <h2 class="films-title">
@@ -36,29 +41,39 @@ Takes in:
 
       <div class="film-tags-group">
         <div class="films-tag">
-          <a href="{{ film.bbfc_search }}">
-            <img title="Find out more about the age rating on BBFC" class="films-icon" src="
-              {% if film.age_rating == "U" %}
-                https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
-              {% elif film.age_rating == "PG" %}
-                https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
-              {% elif film.age_rating == "12" %}
-                https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
-              {% elif film.age_rating == "15" %}
-                https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
-              {% elif film.age_rating == "18" %}
-                https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
-              {% elif film.age_rating is None %}
-                https://bbfc.co.uk/sites/bbfc/themes/bbfc/images/icons/question.png
-              {% endif %}
-            "/>
+          <a
+            title="Find out more about the age rating on BBFC"
+            href="{{ film.bbfc_search }}">
+            <img
+              class="films-icon"
+              src="
+                {% if film.age_rating == "U" %}
+                  https://bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
+                {% elif film.age_rating == "PG" %}
+                  https://bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
+                {% elif film.age_rating == "12" %}
+                  https://bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
+                {% elif film.age_rating == "15" %}
+                  https://bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
+                {% elif film.age_rating == "18" %}
+                  https://bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
+                {% elif film.age_rating is None %}
+                  https://bbfc.co.uk/sites/bbfc/themes/bbfc/images/icons/question.png
+                {% endif %}
+              "
+              width="20" height="20"
+            />
           </a>
         </div>
         <div class="films-tag">
           ·
-          <a title="Read more about the film on IMDB" href="{{ film.imdb }}">
-            <img class="films-icon"
+          <a
+            title="Read more about the film on IMDB"
+            href="{{ film.imdb }}">
+            <img
+              class="films-icon"
               src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
+              width="20" height="20"
             />&thinsp;<span class="
               {% if film.imdb_rating >= 8 %}
                 films-great
@@ -76,7 +91,11 @@ Takes in:
         <div class="films-tag">
           ·
           <a title="Watch the film's trailer on YouTube" href="{{ film.youtube_search }}">
-            <img class="films-icon films-icon__youtube" src="https://youtube.com/favicon.ico" />
+            <img
+              class="films-icon"
+              src="https://www.youtube.com/img/favicon_48.png"
+              width="20" height="20"
+              />
           </a>
         </div>
       </div>
