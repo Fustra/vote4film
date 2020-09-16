@@ -62,6 +62,7 @@ Some general tips:
 - Add search to the admin page for films
 - Stop content reflow on film cards
 - Stop BBFC icon downloads redirecting
+- Replace external YouTube icon with a local SVG
 
 ### v1.5.5 - 2020-06-20
 
