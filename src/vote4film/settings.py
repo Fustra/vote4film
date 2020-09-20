@@ -245,6 +245,8 @@ if env("SENTRY_DSN"):
         dsn=env("SENTRY_DSN"),
         integrations=[DjangoIntegration()],
         send_default_pii=True,
+        attach_stacktrace=True,
+        request_bodies="medium",
         traces_sample_rate=env("SENTRY_TRACE_RATE"),
         _experiments={"auto_enabling_integrations": True},
         release=f"vote4film@{__version__}",

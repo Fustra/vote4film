@@ -63,6 +63,7 @@ Some general tips:
 - Stop content reflow on film cards
 - Stop BBFC icon downloads redirecting
 - Replace external YouTube icon with a local SVG
+- Log more information to Sentry (if enabled)
 
 ### v1.5.5 - 2020-06-20
 
