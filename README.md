@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.6 - 2020-09-20
+
 - Fix parsing omdb film rating when it is missing
 - Add search to the admin page for films
 - Stop content reflow on film cards
