@@ -43,10 +43,16 @@ class FilmCreate(SuccessMessageMixin, CreateView):
         try:
             return super().form_valid(form)
         except IntegrityError:
-            # We cannot determine which constraint failed as the err text varies
+            # We cannot determine which constraint failed as the error text varies
             # depending on the database backend, so we will rely on the get query.
-            self.object = Film.objects.get(title=film.title, year=film.year)
-            return HttpResponseRedirect(self.get_success_url())
+            # If the film exists despite the IntegrityError, then it was a unique
+            # constraint violation - the film has already been added.
+            try:
+                self.object = Film.objects.get(title=film.title, year=film.year)
+                return HttpResponseRedirect(self.get_success_url())
+            except Film.DoesNotExist:
+                pass
+            raise
 
     def get_success_url(self):
         if "_save" in self.request.POST:
