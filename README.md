@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- Fix vendored YouTube icon being hidden by adblockers
 - Fix failing to log correct error when adding films
 
 ### v1.5.6 - 2020-09-20
