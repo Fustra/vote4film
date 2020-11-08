@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.7 - 2020-11-08
+
 - [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix vendored YouTube icon being hidden by adblockers
 - Fix missing BBFC age rating symbols
