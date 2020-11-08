@@ -43,7 +43,7 @@ check:
 	@poetry run black --target-version py37 --quiet --check src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
-	@poetry run isort --check --recursive src tests
+	@poetry run isort --check src tests
 
 	@echo -e "\n${COLOR_GREEN}All Good!${NO_COLOR}"
 
@@ -55,7 +55,7 @@ fix:
 	@poetry run black src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
-	@poetry run isort --recursive src tests
+	@poetry run isort src tests
 
 
 ## test:	Run tests.

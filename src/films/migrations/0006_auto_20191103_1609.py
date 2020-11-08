@@ -16,7 +16,9 @@ class Migration(migrations.Migration):
             field=models.URLField(verbose_name="IMDB Link"),
         ),
         migrations.AlterField(
-            model_name="film", name="imdb_rating", field=models.FloatField(),
+            model_name="film",
+            name="imdb_rating",
+            field=models.FloatField(),
         ),
         migrations.AlterField(
             model_name="film",

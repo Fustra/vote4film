@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix vendored YouTube icon being hidden by adblockers
 - Fix failing to log correct error when adding films
 

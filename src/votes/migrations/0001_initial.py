@@ -52,6 +52,8 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"unique_together": {("user", "film")},},
+            options={
+                "unique_together": {("user", "film")},
+            },
         ),
     ]

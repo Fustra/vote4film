@@ -13,7 +13,7 @@ import sys
 
 import environ
 from django.core.exceptions import ImproperlyConfigured
-from xdg import XDG_CONFIG_HOME
+from xdg import xdg_config_home
 
 from vote4film import __version__
 
@@ -37,9 +37,9 @@ env = environ.Env(
 )
 
 
-if (XDG_CONFIG_HOME / "vote4film/local.env").exists():
+if (xdg_config_home() / "vote4film/local.env").exists():
     config_file = str(
-        environ.Path(XDG_CONFIG_HOME / "vote4film/local.env", required=True)
+        environ.Path(xdg_config_home() / "vote4film/local.env", required=True)
     )
 else:
     config_file = repo_root("local.env", required=True)

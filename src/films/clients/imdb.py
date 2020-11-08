@@ -20,5 +20,9 @@ def get_film(url: str) -> types.Film:
     imdb_rating = float(tree.xpath('//span[@itemprop="ratingValue"]/text()')[0])
 
     return types.Film(
-        imdb=url, title=title, year=year, imdb_age=age_rating, imdb_rating=imdb_rating,
+        imdb=url,
+        title=title,
+        year=year,
+        imdb_age=age_rating,
+        imdb_rating=imdb_rating,
     )

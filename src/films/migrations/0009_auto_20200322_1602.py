@@ -11,6 +11,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name="film", old_name="age_rating", new_name="imdb_age",
+            model_name="film",
+            old_name="age_rating",
+            new_name="imdb_age",
         ),
     ]
