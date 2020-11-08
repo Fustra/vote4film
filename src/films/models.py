@@ -58,8 +58,14 @@ class Film(models.Model):
 
     @property
     def bbfc_search(self):
-        url_path = urllib.parse.quote(f"{self.title}")
-        return f"https://bbfc.co.uk/search/releases/{url_path}"
+        query_string = urllib.parse.urlencode(
+            {
+                "q": self.title,
+                "s": "Newest",
+                "t[]": "Film",
+            }
+        )
+        return f"https://www.bbfc.co.uk/search?{query_string}"
 
     @property
     def youtube_search(self):
