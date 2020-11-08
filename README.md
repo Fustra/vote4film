@@ -60,6 +60,7 @@ Some general tips:
 
 - [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix vendored YouTube icon being hidden by adblockers
+- Fix missing BBFC age rating symbols
 - Fix failing to log correct error when adding films
 
 ### v1.5.6 - 2020-09-20

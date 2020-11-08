@@ -48,17 +48,17 @@ Takes in:
               class="films-icon"
               src="
                 {% if film.age_rating == "U" %}
-                  https://www.bbfc.co.uk/sites/default/files/BBFC%20_U_symbol_0.png
+                  {% static "web/images/bbfc_u.svg" %}
                 {% elif film.age_rating == "PG" %}
-                  https://www.bbfc.co.uk/sites/default/files/BBFC%20_PG_symbol.png
+                  {% static "web/images/bbfc_pg.svg" %}
                 {% elif film.age_rating == "12" %}
-                  https://www.bbfc.co.uk/sites/default/files/BBFC%20_12_symbol.png
+                  {% static "web/images/bbfc_12.svg" %}
                 {% elif film.age_rating == "15" %}
-                  https://www.bbfc.co.uk/sites/default/files/BBFC%20_15_symbol.png
+                  {% static "web/images/bbfc_15.svg" %}
                 {% elif film.age_rating == "18" %}
-                  https://www.bbfc.co.uk/sites/default/files/BBFC%20_18_symbol.png
+                  {% static "web/images/bbfc_18.svg" %}
                 {% elif film.age_rating is None %}
-                  https://www.bbfc.co.uk/sites/bbfc/themes/bbfc/images/icons/question.png
+                  {# TODO: question mark symbol #}
                 {% endif %}
               "
               width="20" height="20"
