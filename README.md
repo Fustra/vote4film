@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix linking to films on BBFC's website
 
 ### v1.5.7 - 2020-11-08
