@@ -24,7 +24,7 @@ class FilmCreate(SuccessMessageMixin, CreateView):
         self.object = form.save(commit=False)
         film = omdb.get_film(settings.OMDB_API_KEY, self.object.imdb)
         try:
-            bbfc_age = best_match(film.title, film.year).age_rating
+            bbfc_age = best_match(film.title).age_rating
             bbfc_age = types.AgeRating(bbfc_age.value)
         except:
             logger.exception("Failed to get BBFC age rating.")
