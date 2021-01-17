@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.5.8 - 2021-01-17
+
 - [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix linking to films on BBFC's website
 - Fix retrieving age rating from BBFC
