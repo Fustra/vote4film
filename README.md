@@ -58,7 +58,8 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix colours on film cards
+- Add link to edit films on film cards
 
 ### v1.5.8 - 2021-01-17
 

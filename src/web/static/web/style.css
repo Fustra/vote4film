@@ -416,34 +416,18 @@ main {
     color: black;
 }
 
-.films-great {
-    background-color: rgb(63, 191, 127, 0.4);
-}
-
-.films-good {
-    background-color: rgb(127, 191, 63, 0.4);
-}
-
-.films-meh {
-    background-color: rgb(191, 127, 63, 0.4);
-}
-
-.films-bad {
-    background-color: rgb(191, 63, 0, 0.4);
-}
-
 .votes-upup {
-    background-color: rgb(63, 191, 127, 0.4);
+    background-color: #8F8;
 }
 
 .votes-up {
-    background-color: rgb(127, 191, 63, 0.4);
+    background-color: #DFD;
 }
 
 .votes-down {
-    background-color: rgb(191, 127, 63, 0.4);
+    background-color: #FDD;
 }
 
 .votes-downdown {
-    background-color: rgb(191, 63, 0, 0.4);
+    background-color: #F88;
 }
