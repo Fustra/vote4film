@@ -51,6 +51,9 @@ check:
 ## fix:	Fix checks where possible (black + isort).
 .PHONY: fix
 fix:
+	@echo -e "${COLOR_BLUE}\n=== autoflake ===\n${NO_COLOR}"
+	@poetry run autoflake --in-place --recursive --remove-all-unused-imports  src
+
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
 	@poetry run black src tests
 
