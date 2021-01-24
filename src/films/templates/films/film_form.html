@@ -24,7 +24,21 @@
   {% else %}
     <h1>Add a Film</h1>
   {% endif %}
-  <p><a target="_blank" href="https://m.imdb.com/find?q=&s=tt&ttype=ft">Search on IMDB</a> (copy the link when you find the film and come back).
+  <p>
+  {% if not object %}
+    <a target="_blank" href="https://m.imdb.com/find?q=&s=tt&ttype=ft">
+      Search on IMDB
+    </a>
+    (copy the link when you find the film and come back).
+  {% endif %}
+  {% if object %}
+    <form action="{% url 'films:film-refresh' film.pk %}" method="post">
+      {% csrf_token %}
+      <button class="button button--secondary">
+        Refresh film information from external sources
+      </button>
+    </form>
+  {% endif %}
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

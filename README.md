@@ -60,6 +60,7 @@ Some general tips:
 
 - Fix colours on film cards
 - Add link to edit films on film cards
+- Add button to refresh film information
 
 ### v1.5.8 - 2021-01-17
 
