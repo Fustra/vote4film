@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.6.0 - 2021-01-24
+
 - Treat users with unknown presence as being absent for the event
 - Add link to edit films on film cards
 - Add button to refresh film information
