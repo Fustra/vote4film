@@ -58,9 +58,10 @@ Some general tips:
 
 ### Unpublished
 
-- Fix colours on film cards
+- Treat users with unknown presence as being absent for the event
 - Add link to edit films on film cards
 - Add button to refresh film information
+- Fix colours on film cards
 
 ### v1.5.8 - 2021-01-17
 
