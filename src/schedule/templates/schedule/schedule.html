@@ -63,10 +63,20 @@
         <li><i class="far fa-question-circle"></i> {{ user.username }}
       {% endfor %}
     </ol>
-    <p>
-      If someone is absent <i class="far fa-times-circle"></i>
-      or we don't know otherwise <i class="far fa-question-circle"></i>,
-      then we will try to avoid the films they also want to watch.
+    {% if unknown_users %}
+      <button id="inform-button"
+              class="button button--secondary inform-button"
+              style="display: none"
+              onclick="sharePage()">
+        Tell people about this event
+      </button>
+    {% endif %}
+    {% if absent_users or unknown_users %}
+      <p>
+        If someone is absent <i class="far fa-times-circle"></i>
+        or we don't know otherwise <i class="far fa-question-circle"></i>
+        then we will try to avoid the films they also want to watch.
+    {% endif %}
   {% else %}
     <p>
       There is no upcoming event in the calender.
@@ -78,5 +88,37 @@
         You have voted for <a href="{% url 'votes:vote-aggregate' %}">all the films</a>;
         there is nothing for you to do right now.
     {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block script %}
+  {{ block.super }}
+  {% if unknown_users %}
+    <script>
+      'use strict';
+      async function sharePage() {
+        const url = document.querySelector('link[rel=canonical]') &&
+                    document.querySelector('link[rel=canonical]').href ||
+                    window.location.href;
+        try {
+          await navigator.share({
+            title: "Vote4Film",
+            text: "Vote4Film - next event {{ event.date|naturalday:"l jS F"|capfirst }}",
+            url: url,
+          });
+        } catch (err) {
+          if (err.name !== "AbortError") {
+            window.alert(err);
+          }
+        }
+      };
+
+      // Enable Share Button
+      if (navigator.share) {
+        window.onload = () => {
+          document.getElementById('inform-button').style.display = "inherit";
+        }
+      }
+    </script>
   {% endif %}
 {% endblock %}

@@ -453,3 +453,10 @@ main {
 .votes-downdown {
     background-color: #F88;
 }
+
+/* === MISC === */
+
+.inform-button {
+    display: block;
+    margin: 0 auto;
+}

@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- Add share button to tell people about the next event
 - Increase size of film posters on larger displays
 
 ### v1.6.0 - 2021-01-24
