@@ -32,7 +32,7 @@
 {% block content %}
   <h1>Upcoming</h1>
   {% if event %}
-    <h2>The next event is {{ event.date|naturalday|capfirst }}</h2>
+    <h2>The next event is {{ event.date|naturalday:"l jS F"|capfirst }}</h2>
 
     {% if not film %}
       <p>There are no films left to watch!

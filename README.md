@@ -60,6 +60,7 @@ Some general tips:
 
 - Add share button to tell people about the next event
 - Increase size of film posters on larger displays
+- Prettify next event date heading
 
 ### v1.6.0 - 2021-01-24
 
