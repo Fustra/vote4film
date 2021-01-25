@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Increase size of film posters on larger displays
 
 ### v1.6.0 - 2021-01-24
 

@@ -373,10 +373,26 @@ main {
     background-color: silver;
 }
 
+.films-img-link {
+    float:left;
+}
+
 .films-img {
-    max-width: 112px;  /* 7em */
-    float: left;
+    max-width: 75px;
+    height: auto;
     margin-right: 0.75em;
+}
+
+@media (min-width: 21em) {
+    .films-img {
+        max-width: 112px;
+    }
+}
+
+@media (min-width: 25em) {
+    .films-img {
+        max-width: 150px;
+    }
 }
 
 .films-content {
@@ -408,7 +424,13 @@ main {
 }
 
 .films-icon {
-    vertical-align: text-bottom;
+    vertical-align: bottom;
+}
+
+.films-icon-text {
+    display: inline-block;
+    vertical-align: bottom;
+    min-height: 24px;
 }
 
 .films-tag a {

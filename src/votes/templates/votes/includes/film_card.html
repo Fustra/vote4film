@@ -18,12 +18,14 @@ Takes in:
     films-card--watched
   {% endif %}
 ">
-  <a href="{{ film.poster_url }}">
+  <a class="films-img-link" href="{{ film.poster_url }}">
     <img
       class="films-img"
       src="{{ film.poster_url }}"
       {# Use average height while loading - cards vary in height #}
-      width="112" height="166"
+      width="150" height="222"
+      {# Most common size = 150x222 #}
+      {# TODO: we should use the actual size to improve content reflow #}
     />
   </a>
   <section class="films-content">
@@ -61,7 +63,7 @@ Takes in:
                   {% static "web/images/bbfc_unknown.svg" %}
                 {% endif %}
               "
-              width="20" height="20"
+              width="24" height="24"
             />
           </a>
         </div>
@@ -73,8 +75,8 @@ Takes in:
             <img
               class="films-icon"
               src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
-              width="20" height="20"
-            /><span style="
+              width="24" height="24"
+            /><span class="films-icon-text" style="
                 {# red - green linear gradient between 6.0 and 8.0 #}
                 {% widthratio film.imdb_rating 10 100 as rating %}
                 {% with subrating=rating|add:-60 %}
@@ -99,20 +101,19 @@ Takes in:
             <img
               class="films-icon"
               src="{% static "web/images/yt_icon.svg" %}"
-              width="20" height="20"
+              width="24" height="24"
               />
           </a>
         </div>
       </div>
-
-      <br>
-
-      <div style="display: inline;" class="films-tag">
-        <em>{{ film.genre }}</em>
-      </div>
-      <div class="films-tag">
-        ·
-        <em>{{ film.runtime_mins|duration_format }}</em>
+      <div style="display: block">
+        <div style="display: inline;" class="films-tag">
+          <em>{{ film.genre }}</em>
+        </div>
+        <div class="films-tag">
+          ·
+          <em>{{ film.runtime_mins|duration_format }}</em>
+        </div>
       </div>
     </section>
 
@@ -155,4 +156,5 @@ Takes in:
       {% endif %}
       <a href="{% url 'films:film-update' film.pk %}">(Edit Film)</a>
   </section>
+  <div style="clear: left; height: 1px;"></div>
 </section>
