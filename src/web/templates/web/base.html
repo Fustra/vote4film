@@ -28,11 +28,13 @@ Takes in:
 <meta name="msapplication-config" content="{% static "web/favicon/browserconfig.xml" %}">
 <meta name="theme-color" content="#4d394b">
 
-{# Vendor - Sanitize v11.0 - https://github.com/csstools/sanitize.css #}
-<link href="{% static "web/vendor/sanitize/sanitize.css" %}" rel="stylesheet">
-<link href="{% static "web/vendor/sanitize/sanitize-forms.css" %}" rel="stylesheet">
-<link href="{% static "web/vendor/sanitize/sanitize-typography.css" %}" rel="stylesheet">
+{# Vendor - Sanitize v12.0.1 - https://github.com/csstools/sanitize.css #}
+<link href="{% static "web/vendor/sanitize/sanitize.evergreen.css" %}" rel="stylesheet">
+<link href="{% static "web/vendor/sanitize/sanitize-assets.css" %}" rel="stylesheet">
+<link href="{% static "web/vendor/sanitize/sanitize-forms.evergreen.css" %}" rel="stylesheet">
 <link href="{% static "web/vendor/sanitize/sanitize-page.css" %}" rel="stylesheet">
+<link href="{% static "web/vendor/sanitize/sanitize-reduce-motion.css" %}" rel="stylesheet">
+<link href="{% static "web/vendor/sanitize/sanitize-typography.css" %}" rel="stylesheet">
 {# Project Styles #}
 <link href="{% static "web/style.css" %}" rel="stylesheet">
 {# Vendor - Font Awesome v5.13.0 - https://fontawesome.com/ #}

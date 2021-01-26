@@ -36,17 +36,11 @@ select:not([multiple]):not([size]) {
 }
 
 /**
- * Change the inconsistent appearance in IE (opinionated).
+ * Remove the border and padding in all browsers (opinionated).
  */
 
-::-ms-expand {
-  display: none;
-}
-
-/**
- * Correct the inconsistent appearance in IE (opinionated).
- */
-
-:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.54);
+[type="color" i],
+[type="range" i] {
+  border-width: 0;
+  padding: 0;
 }
