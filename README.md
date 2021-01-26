@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.7.0 - 2021-01-26
+
 - Add share button to tell people about the next event
 - Add login page
 - Fix webmanifest link on mobile web app
