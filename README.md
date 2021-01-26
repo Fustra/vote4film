@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Add colour to system status bar at the top on iOS Safari
 
 ### v1.7.0 - 2021-01-26
 
