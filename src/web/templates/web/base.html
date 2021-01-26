@@ -63,9 +63,9 @@ Takes in:
         Films
       </a>
       <a tabindex="4"
-         class="nav__item {% if u == 'admin:logout' %}nav__item--selected{% endif %}"
-         href="{% url 'admin:logout' %}">
-        Logout
+         class="nav__item {% if u == 'web:home' %}nav__item--selected{% endif %}"
+         href="{% url 'web:home' %}">
+        Help
      </a>
     {% endwith %}
   </section>

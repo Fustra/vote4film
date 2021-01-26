@@ -1,5 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
 
 from vote4film.log import global_context_filter
 
@@ -40,11 +39,11 @@ def login_required_middleware(get_response):
     Requires authentication middleware and template context processors to be
     loaded. You'll get an error if they aren't.
     """
-    exceptions = {"/admin/login/"}
+    exceptions = {"/login/", "/logout/", "/admin/login/", "/admin/logout/"}
 
     def middleware(request):
         if request.path in exceptions:
             return get_response(request)
-        return login_required(get_response, login_url=reverse("admin:login"))(request)
+        return login_required(get_response)(request)
 
     return middleware

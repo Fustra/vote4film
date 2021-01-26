@@ -160,6 +160,10 @@ TEMPLATES = [
     }
 ]
 
+LOGIN_URL = "web:login"
+LOGIN_REDIRECT_URL = "web:home"
+LOGOUT_REDIRECT_URL = "web:login"
+
 WSGI_APPLICATION = "vote4film.wsgi.application"
 
 

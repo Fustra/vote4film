@@ -59,6 +59,7 @@ Some general tips:
 ### Unpublished
 
 - Add share button to tell people about the next event
+- Add login page
 - Increase size of film posters on larger displays
 - Prettify next event date heading
 
