@@ -60,6 +60,7 @@ Some general tips:
 
 - Add share button to tell people about the next event
 - Add login page
+- Fix webmanifest link on mobile web app
 - Increase size of film posters on larger displays
 - Prettify next event date heading
 

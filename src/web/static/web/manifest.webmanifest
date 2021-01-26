@@ -1,7 +1,7 @@
 {
     "short_name": "Vote4Film",
     "name": "Vote4Film",
-    "description": "Vote4Film for a group doing regular film nights"
+    "description": "Vote4Film on regular film nights",
     "icons": [
         {
             "src": "/static/web/favicon/favicon-16x16.png",
@@ -87,6 +87,6 @@
     "theme_color": "#4d394b",
     "background_color": "#4d394b",
     "start_url": "/schedule/",
-    "scope": "/"
+    "scope": "/",
     "display": "standalone"
 }
