@@ -8,7 +8,7 @@ Takes in:
   - {{ is_voting }} = Bool
 {% endcomment %}
 
-{% load static films_extras votes_extras %}
+{% load static films_extras %}
 
 <section class="films-card
   {% if not film.is_available %}
@@ -133,18 +133,17 @@ Takes in:
               votes-downdown
             {% endif %}
           ">
-            {% nospaces %}
+              &thinsp;
               {% if vote.choice == 2 %}
-                ↟
+                <i class="fas fa-angle-double-up"></i>
               {% elif vote.choice == 1 %}
-                ↑
+                <i class="fas fa-angle-up"></i>
               {% elif vote.choice == -1 %}
-                ↓
+                <i class="fas fa-angle-down"></i>
               {% elif vote.choice == -2 %}
-                ↡
+                <i class="fas fa-angle-double-down"></i>
               {% endif %}
               {{ vote.user.username|slice:":3" }}
-            {% endnospaces %}
           </span>
         {% endfor %}
         &nbsp;
