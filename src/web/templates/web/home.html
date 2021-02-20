@@ -2,7 +2,10 @@
 
 {% block content %}
   <h1>Logout</h1>
-  <a href="{% url 'web:logout' %}">Logout</a>
+  <form action="{% url 'web:logout' %}" method="post">
+    {% csrf_token %}
+    <button class="button button--secondary" type="submit">Logout</button>
+  </form>
   <h1>What do I do?</h1>
   <ul>
     <li>Vote for films that you want to watch (or don't want to watch)
