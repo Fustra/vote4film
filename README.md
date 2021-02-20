@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.7.1 - 2021-02-20
+
 - Add colour to system status bar at the top on iOS Safari
 - Fix vote symbols across different web browsers
 - Reduce page loading times
