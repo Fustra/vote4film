@@ -58,7 +58,8 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Fix getting age rating from BBFC
+- Upgrade dependencies
 
 ### v1.7.1 - 2021-02-20
 
