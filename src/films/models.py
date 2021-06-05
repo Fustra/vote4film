@@ -45,7 +45,7 @@ class Film(models.Model):
         max_length=3,
         choices=AGE_RATING_CHOICES,
     )
-    imdb_rating = models.FloatField(verbose_name="IMDB Rating")
+    imdb_rating = models.FloatField(verbose_name="IMDB Rating", null=True, blank=True)
     trailer = models.URLField(verbose_name="Trailer Link", null=True, blank=True)
     genre = models.CharField(null=True, blank=True, max_length=255)
     runtime_mins = models.PositiveIntegerField(

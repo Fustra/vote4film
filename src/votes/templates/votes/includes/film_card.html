@@ -76,7 +76,7 @@ Takes in:
               class="films-icon"
               src="https://ia.media-imdb.com/images/G/01/imdb/images/favicon-2165806970"
               width="24" height="24"
-            /><span class="films-icon-text" style="
+            />{% if film.imdb_rating %}<span class="films-icon-text" style="
                 {# red - green linear gradient between 6.0 and 8.0 #}
                 {% widthratio film.imdb_rating 10 100 as rating %}
                 {% with subrating=rating|add:-60 %}
@@ -91,6 +91,7 @@ Takes in:
                 {% endwith %}
             ">&thinsp;{{ film.imdb_rating }}&thinsp;
             </span>
+            {%endif%}
           </a>
         </div>
         <div class="films-tag">
