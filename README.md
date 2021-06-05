@@ -58,6 +58,10 @@ Some general tips:
 
 ### Unpublished
 
+...
+
+### v1.7.3 - 2021-06-05
+
 - [SECURITY] Fix security vulnerability in underlying dependencies
 - Fix adding films where rating is missing
 - Lazily load film card images
