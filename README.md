@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- [SECURITY] Fix security vulnerability in underlying dependencies
 
 ### v1.7.2 - 2021-03-04
 
