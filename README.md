@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Extend the lifetime of logged-in sessions to one year
 
 ### v1.7.3 - 2021-06-05
 

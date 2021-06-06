@@ -227,12 +227,15 @@ if DEBUG:
 X_FRAME_OPTIONS = "DENY"  # (Nginx does it also)
 SECURE_CONTENT_TYPE_NOSNIFF = True  # (Nginx does it also)
 SECURE_BROWSER_XSS_FILTER = True  # (Nginx does it also)
-CSRF_USE_SESSIONS = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_AGE = 365 * 24 * 60 * 60  # 1 year long login sessions
 SESSION_COOKIE_HTTPONLY = True  # Do not let JavaScript read the Session cookie
 # The development server uses HTTP
 if not DEBUG:
+    CSRF_COOKIE_SECURE = True  # Avoid sending over HTTP
     SESSION_COOKIE_SECURE = True  # Avoid sending over HTTP
     SECURE_SSL_REDIRECT = True  # Redirect HTTP -> HTTPS (Nginx does it also)
+
 
 # Local security
 FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o550
