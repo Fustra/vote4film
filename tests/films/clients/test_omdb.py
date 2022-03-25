@@ -12,8 +12,7 @@ from films.core import types
 def test_get_film():
     INPUT_URL = "https://www.imdb.com/title/tt1853728/"
     MOCK_URL = "http://www.omdbapi.com/?apikey=&i=tt1853728"
-    responses.add(
-        responses.GET,
+    responses.get(
         MOCK_URL,
         json=json.loads((Path(__file__).parent / "omdb_tt1853728.json").read_text()),
     )

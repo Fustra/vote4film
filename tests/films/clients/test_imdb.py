@@ -9,8 +9,7 @@ from films.core import types
 @responses.activate
 def test_get_film():
     URL = "https://www.imdb.com/title/tt1853728/"
-    responses.add(
-        responses.GET,
+    responses.get(
         URL,
         body=(Path(__file__).parent / "tt1853728.html").read_bytes(),
     )

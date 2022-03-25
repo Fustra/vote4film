@@ -40,7 +40,7 @@ check:
 	@poetry run ./src/manage.py makemigrations --dry-run --check --no-input
 
 	@echo -e "${COLOR_BLUE}\n=== Black ===\n${NO_COLOR}"
-	@poetry run black --target-version py37 --quiet --check src tests
+	@poetry run black --target-version py38 --quiet --check src tests
 
 	@echo -e "${COLOR_BLUE}\n=== isort ===\n${NO_COLOR}"
 	@poetry run isort --check src tests
