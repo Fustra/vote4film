@@ -1,0 +1,33 @@
+#!/usr/bin/sh
+# shellcheck disable=SC2059
+set -eu
+
+COLOUR_BLUE="\033[0;94m"
+COLOUR_GREEN="\033[0;32m"
+NO_COLOUR="\033[m"
+
+printf "${COLOUR_BLUE}=== Poetry ===${NO_COLOUR}\n\n"
+poetry --quiet check
+
+printf "\n${COLOUR_BLUE}=== Pyflakes ===${NO_COLOUR}\n\n"
+poetry run pyflakes src tests
+
+printf "\n${COLOUR_BLUE}=== Security: Bandit ===${NO_COLOUR}\n\n"
+poetry run bandit --recursive --quiet src
+
+printf "\n${COLOUR_BLUE}=== Security: Safety ===${NO_COLOUR}\n\n"
+poetry run safety check --bare
+
+printf "\n${COLOUR_BLUE}=== Django ===${NO_COLOUR}\n\n"
+poetry run ./src/manage.py check --deploy --fail-level WARNING
+
+printf "\n${COLOUR_BLUE}=== Django - missing migrations ===${NO_COLOUR}\n\n"
+poetry run ./src/manage.py makemigrations --check
+
+printf "\n${COLOUR_BLUE}=== Black ===${NO_COLOUR}\n\n"
+poetry run black --quiet --check src tests
+
+printf "\n${COLOUR_BLUE}=== isort ===${NO_COLOUR}\n\n"
+poetry run isort --check src tests
+
+printf "\n${COLOUR_GREEN}=== All Good! ===${NO_COLOUR}\n"

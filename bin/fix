@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+# shellcheck disable=SC2059
+set -eu
+
+COLOUR_BLUE="\033[0;94m"
+COLOUR_GREEN="\033[0;32m"
+NO_COLOUR="\033[m"
+
+printf "${COLOUR_BLUE}=== autoflake ===${NO_COLOUR}\n\n"
+poetry run autoflake --in-place --recursive --remove-all-unused-imports src
+
+printf "\n${COLOUR_BLUE}=== Black ===${NO_COLOUR}\n\n"
+poetry run black --quiet src tests
+
+printf "\n${COLOUR_BLUE}=== isort ===${NO_COLOUR}\n\n"
+poetry run isort src tests
+
+printf "\n${COLOUR_GREEN}=== All Good! ===${NO_COLOUR}\n"

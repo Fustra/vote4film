@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+# shellcheck disable=SC2059
+set -eu
+
+COLOUR_BLUE="\033[0;94m"
+COLOUR_GREEN="\033[0;32m"
+NO_COLOUR="\033[m"
+
+printf "${COLOUR_BLUE}=== Pytest ===${NO_COLOUR}\n\n"
+poetry run pytest tests
+
+printf "\n${COLOUR_GREEN}=== All Good! ===${NO_COLOUR}\n"
