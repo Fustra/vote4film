@@ -58,6 +58,7 @@ Some general tips:
 
 ### Unpublished
 
+- Fix film cards where the runtime is unknown
 - Extend the lifetime of logged-in sessions to one year
 
 ### v1.7.3 - 2021-06-05

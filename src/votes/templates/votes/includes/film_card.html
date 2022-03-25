@@ -112,10 +112,12 @@ Takes in:
         <div style="display: inline;" class="films-tag">
           <em>{{ film.genre }}</em>
         </div>
-        <div class="films-tag">
-          ·
-          <em>{{ film.runtime_mins|duration_format }}</em>
-        </div>
+        {% if film.runtime_mins %}
+          <div class="films-tag">
+            ·
+            <em>{{ film.runtime_mins|duration_format }}</em>
+          </div>
+        {% endif %}
       </div>
     </section>
 
