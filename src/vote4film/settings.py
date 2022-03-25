@@ -218,6 +218,7 @@ if DEBUG:
     SILENCED_SYSTEM_CHECKS += [
         "security.W008",  # SECURE_SSL_REDIRECT
         "security.W012",  # SESSION_COOKIE_SECURE
+        "security.W016",  # CSRF_COOKIE_SECURE
         "security.W018",  # DEBUG
         "security.W020",  # ALLOWED_HOSTS
     ]
