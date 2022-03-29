@@ -59,6 +59,7 @@ Some general tips:
 ### Unpublished
 
 - [SECURITY] Fix security vulnerability in underlying dependencies
+- Update Django dependency to the next long-term support release
 
 ### v1.7.4 - 2022-03-25
 

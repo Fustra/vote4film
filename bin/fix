@@ -10,7 +10,7 @@ printf "${COLOUR_BLUE}=== autoflake ===${NO_COLOUR}\n\n"
 poetry run autoflake --in-place --recursive --remove-all-unused-imports src
 
 printf "\n${COLOUR_BLUE}=== Black ===${NO_COLOUR}\n\n"
-poetry run black --quiet src tests
+poetry run black src tests
 
 printf "\n${COLOUR_BLUE}=== isort ===${NO_COLOUR}\n\n"
 poetry run isort src tests

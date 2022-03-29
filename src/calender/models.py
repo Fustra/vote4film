@@ -61,7 +61,7 @@ class Register(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    is_present = models.NullBooleanField()
+    is_present = models.BooleanField(null=True, blank=True)
 
     @property
     def is_registered(self):

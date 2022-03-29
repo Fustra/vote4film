@@ -21,11 +21,11 @@ def add_request_logging_context(get_response):
 def add_user_logging_context(get_response):
     """Set additional request-related information for logging.
 
-    This should be after the authentication middleware.
+    This must be after the authentication middleware.
     """
 
     def middleware(request):
-        global_context_filter.update_user_info()
+        global_context_filter.update_user_info(request)
         return get_response(request)
 
     return middleware

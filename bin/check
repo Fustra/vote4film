@@ -22,10 +22,10 @@ printf "\n${COLOUR_BLUE}=== Django ===${NO_COLOUR}\n\n"
 poetry run ./src/manage.py check --deploy --fail-level WARNING
 
 printf "\n${COLOUR_BLUE}=== Django - missing migrations ===${NO_COLOUR}\n\n"
-poetry run ./src/manage.py makemigrations --check
+poetry run ./src/manage.py makemigrations --check --dry-run --no-input
 
 printf "\n${COLOUR_BLUE}=== Black ===${NO_COLOUR}\n\n"
-poetry run black --quiet --check src tests
+poetry run black --check src tests
 
 printf "\n${COLOUR_BLUE}=== isort ===${NO_COLOUR}\n\n"
 poetry run isort --check src tests

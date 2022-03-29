@@ -13,7 +13,6 @@ class ContextFilter(logging.Filter):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.request = None
         self.uuid = None
         self.user_pk = None
 
@@ -22,18 +21,16 @@ class ContextFilter(logging.Filter):
         return global_context_filter
 
     def start_request(self, request):
-        self.request = request
         self.uuid = uuid.uuid4()
         if request:
             request.uuid = self.uuid
 
-    def update_user_info(self):
-        # Called by middleware
-        if self.request and self.request.user and self.request.user.is_authenticated:
-            self.user_pk = self.request.user.pk
+    def update_user_info(self, request):
+        # Called by middleware (in a different place in the order)
+        if request.user and request.user.is_authenticated:
+            self.user_pk = request.user.pk
 
     def end_request(self):
-        self.request = None
         self.uuid = None
         self.user_pk = None
 
