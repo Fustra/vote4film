@@ -101,7 +101,8 @@ def _update_django_film_from_external(dfilm: Film) -> None:
         bbfc_age = best_match(cfilm.title).age_rating
         bbfc_age = types.AgeRating(bbfc_age.value)
     except:
-        logger.exception("Failed to get BBFC age rating.")
+        # Determine and set the BBFC age rating yourself
+        logger.exception("[Manual Action] Failed to get BBFC age rating.")
         bbfc_age = None
 
     dfilm.title = cfilm.title

@@ -58,7 +58,7 @@ Some general tips:
 
 ### Unpublished
 
-...
+- Clarify manual action required with external API errors
 
 ### v1.7.5 - 2022-03-29
 
