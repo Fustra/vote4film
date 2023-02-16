@@ -50,7 +50,7 @@ pyflakes = "^2.3"
 safety = "^1.9"
 # Development helpers
 django-debug-toolbar = "^3.2"
-werkzeug = "^2.0"
+werkzeug = "^2.2"
 # Tests
 pytest = "^7.1"
 pytest-django = "^4.3"
